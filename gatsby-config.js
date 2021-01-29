@@ -1,11 +1,23 @@
+const autoprefixer = require('autoprefixer');
+const postcssNested = require('postcss-nested');
+const postcssSimpleVars = require('postcss-simple-vars');
+
+
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `CameraFlips`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [postcssSimpleVars, postcssNested, autoprefixer]
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
