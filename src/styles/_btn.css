@@ -1,0 +1,36 @@
+$orange: rgba(252, 124, 60, 1);
+$purple: #4600b0;
+
+.btn {
+  display: block;
+  width: max-content;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  border-radius: 4px;
+
+  &--main {
+    background-color: #fc7c3c;
+    /*color: #2a0169;*/
+    color: white;
+
+    margin: 40px 0 0 0;
+  }
+
+  &--services {
+    background-color: #fc7c3c;
+    color: white;
+    margin: 20px auto 5px auto;
+  }
+
+  &--form {
+    background-color: $purple;
+    color: #fff;
+  }
+
+  &--buy {
+    color: #fff;
+    background-color: $purple;
+    margin: 30px auto 0 auto;
+  }
+}

@@ -1,0 +1,22 @@
+.recent-posts {
+  z-index: 1;
+  position: relative;
+  width: 100vw;
+  height: max-content;
+  min-height: 700px;
+
+  &__title {
+    width: max-content;
+    margin: auto;
+    padding: 60px 0;
+  }
+
+  &__pool {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 60px;
+    width: 100%;
+  }
+}

@@ -1,0 +1,13 @@
+.spbsm {
+  &-button-wrapper-flat {
+    a {
+      display: inline-block;
+      height: 30px;
+    }
+
+    svg {
+      height: 100%;
+      width: 30px;
+    }
+  }
+}

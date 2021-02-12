@@ -2,6 +2,8 @@ const autoprefixer = require('autoprefixer');
 const postcssNested = require('postcss-nested');
 const postcssSimpleVars = require('postcss-simple-vars');
 
+require('dotenv').config();
+
 
 
 module.exports = {
@@ -23,6 +25,22 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+
+      resolve: `gatsby-source-contentful`,
+   
+      options: {
+       spaceId: process.env.CONTENTFUL_ID,
+       accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+       }
+   
+    },
+    {
+      resolve: `gatsby-source-wordpress-experimental`,
+      options: {
+        url: `https://cameraflips.co.uk/graphql`,
       },
     },
     `gatsby-transformer-sharp`,

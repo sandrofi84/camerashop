@@ -1,0 +1,25 @@
+$orange: rgba(252, 124, 60, 1);
+$purple: #4600b0;
+$grey: rgba(45, 45, 46, 1);
+
+.bg {
+  &--orange {
+    background-color: $orange;
+  }
+
+  &--orange-t {
+    background-color: rgba(252, 124, 60, 0.6);
+  }
+
+  &--purple {
+    background-color: $purple;
+  }
+
+  &--white {
+    background-color: #fff;
+  }
+
+  &--grey {
+    background-color: $grey;
+  }
+}

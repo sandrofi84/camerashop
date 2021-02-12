@@ -1,0 +1,37 @@
+.post {
+  &__card {
+    margin: 0 20px 60px 20px;
+    width: 40%;
+    height: max-content;
+
+    &__picture {
+      width: 100%;
+      max-height: 400px;
+      overflow: hidden;
+    }
+
+    &__text {
+      color: white;
+
+      &-title {
+        margin: 15px 0;
+      }
+
+      &-excerpt {
+        line-height: 2rem;
+        p {
+          font-size: 1.4rem;
+        }
+      }
+
+      &-date {
+        display: block;
+        margin: 10px 0;
+      }
+
+      &-link {
+        text-decoration: underline;
+      }
+    }
+  }
+}

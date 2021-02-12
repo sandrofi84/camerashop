@@ -1,0 +1,67 @@
+$orange: rgba(252, 124, 60, 1);
+$purple: #4600b0;
+
+.layer {
+  &-screen {
+    position: absolute;
+    width: 100%;
+    height: 400vh;
+    min-height: 2800px;
+
+    &--white {
+      background-color: rgba(255, 255, 255, 0.9);
+      clip-path: polygon(0 30%, 100% 21%, 100% 100%, 0% 100%);
+    }
+
+    &--black {
+      background-color: rgba(0, 0, 0, 0.8);
+      clip-path: polygon(0 47%, 100% 55%, 100% 67%, 0% 70%);
+    }
+  }
+
+  &-geometry {
+    position: absolute;
+    width: 100%;
+    min-height: 300%;
+
+    &__square {
+      position: absolute;
+      top: 78vh;
+      left: 85vw;
+      height: 100px;
+      width: 100px;
+      border: 5px solid $purple;
+      opacity: 0.6;
+    }
+
+    &__square-2 {
+      position: absolute;
+      top: 84vh;
+      left: 78vw;
+      height: 300px;
+      width: 150px;
+      border: 10px solid $orange;
+      opacity: 0.6;
+    }
+
+    &__square-3 {
+      position: absolute;
+      top: 25vh;
+      left: 15vw;
+      height: 100px;
+      width: 100px;
+      border: 7px solid $purple;
+      opacity: 0.6;
+    }
+
+    &__square-4 {
+      position: absolute;
+      top: 28vh;
+      left: 20vw;
+      height: 200px;
+      width: 200px;
+      border: 1px solid $orange;
+      opacity: 0.6;
+    }
+  }
+}

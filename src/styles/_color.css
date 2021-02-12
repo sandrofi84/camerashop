@@ -1,0 +1,16 @@
+$orange: rgba(252, 124, 60, 1);
+$purple: #4600b0;
+
+.color {
+  &--white {
+    color: #fff;
+  }
+
+  &--orange {
+    color: rgba(252, 124, 60, 1);
+  }
+
+  &--purple {
+    color: $purple;
+  }
+}

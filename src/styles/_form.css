@@ -1,0 +1,46 @@
+.form {
+  padding: 20px;
+  width: max-content;
+
+  label,
+  input {
+    display: block;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+  }
+
+  input {
+    width: 200px;
+    height: 25px;
+    padding: 0 5px;
+    border: none;
+  }
+
+  textarea {
+    padding: 5px;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    resize: none;
+    overflow: scroll;
+    border: none;
+  }
+
+  &-group {
+    padding: 10px 0px;
+  }
+
+  &-subgroup {
+    display: inline-block;
+
+    &:first-child {
+      padding-right: 10px;
+    }
+  }
+}
+
+#gdpr {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+}

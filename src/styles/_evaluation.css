@@ -1,0 +1,39 @@
+.evaluation {
+  z-index: 1;
+  position: relative;
+  padding-bottom: 100px;
+  width: 100%;
+  height: max-content;
+  min-height: 700px;
+
+  &__container {
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 30px 20px;
+    max-width: 550px;
+
+    &-title {
+      max-width: 510px;
+    }
+
+    &-sub {
+      margin-top: 20px;
+      max-width: 510px;
+      text-align: justify;
+      line-height: 2.3rem;
+      font-size: 1.4rem;
+    }
+
+    &-cta {
+      margin-top: 20px;
+      max-width: 510px;
+    }
+  }
+}

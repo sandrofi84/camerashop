@@ -1,0 +1,22 @@
+.plife {
+  z-index: 1;
+  position: relative;
+  width: 100vw;
+  height: max-content;
+  min-height: 700px;
+  background-color: rgba(128, 43, 255, 0.8);
+
+  &__title {
+    width: max-content;
+    margin: auto;
+    padding: 60px 0;
+  }
+
+  &__container {
+    margin: auto;
+    width: max-content;
+  }
+
+  &__video {
+  }
+}
