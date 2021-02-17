@@ -1,7 +1,15 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/ssr-apis/
- */
+import React from "react"
+import Layout from "./src/components/layout"
 
-// You can delete this file if you're not using it
+
+
+// Wraps every page in a component
+export const wrapPageElement = ({ element, props }) => {
+    return <Layout {...props}>{element}</Layout>
+}
+
+export const onRenderBody = ({ setBodyAttributes }) => {
+    setBodyAttributes({
+        className: 'snipcart-overwrite'
+      });
+  };

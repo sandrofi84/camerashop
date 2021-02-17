@@ -4,18 +4,12 @@ import React from "react"
 import Header from "./header"
 import "../styles/layout.css"
 
-const Layout = ({ children }) => {
-
-  return (
+const Layout = ({ children }) => (
     <>
       <Header/>
-      <div>
-        <main>{children}</main>
-        <footer className="footer bg--grey color--white">
-        </footer>
-      </div>
+      <main>{children}</main>
+      <footer className="footer bg--grey color--white"/>
     </>
   )
-}
 
 export default Layout

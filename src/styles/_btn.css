@@ -33,4 +33,10 @@ $purple: #4600b0;
     background-color: $purple;
     margin: 30px auto 0 auto;
   }
+
+  &--shop-product {
+    background-color: #fc7c3c;
+    color: white;
+    margin: 20px auto 5px auto;
+  }
 }

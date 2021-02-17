@@ -30,4 +30,14 @@ $grey: rgba(45, 45, 46, 1);
       transition: all 0.2s ease-out;
     }
   }
+
+  &__cart-icon {
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
+    filter: invert();
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+  }
 }

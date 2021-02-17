@@ -1,0 +1,107 @@
+$orange: rgba(252, 124, 60, 1);
+$purple: #4600b0;
+$grey: rgba(45, 45, 46, 1);
+
+.snipcart-overwrite {
+  .snipcart {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif !important;
+
+    &__font {
+      &--secondary {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+
+      &--subtitle {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+    }
+    &-checkout {
+      display: inline-block;
+      margin-left: 20px;
+      color: white;
+      cursor: pointer;
+    }
+
+    &-items-count {
+      display: inline-block;
+      padding: 5px;
+      width: 28px;
+      text-align: center;
+      border-radius: 15px;
+      background-color: $purple;
+
+      &::before {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        content: "";
+        background-color: $purple;
+        border: 1px solid $purple;
+        transform: translateX(-12px) translateY(6px) rotate(45deg);
+      }
+    }
+
+    &-modal__container {
+      z-index: 1000;
+    }
+
+    &-modal__close-title {
+      color: $purple;
+    }
+
+    &-cart-button {
+      color: white;
+      background: $orange;
+      border-radius: 4px;
+      svg {
+        filter: brightness(2);
+      }
+    }
+
+    &-cart__secondary-header {
+      color: white;
+      background-color: rgba(128, 43, 255, 0.8);
+
+      svg {
+        filter: invert();
+        cursor: pointer;
+      }
+    }
+
+    &-cart-header__close-button {
+      svg {
+        filter: hue-rotate(50deg);
+      }
+    }
+
+    &-cart__content {
+      @supports (-moz-appearance: none) {
+        overflow: scroll !important;
+      }
+    }
+
+    &__box--badge {
+      svg {
+        filter: hue-rotate(50deg);
+      }
+    }
+
+    &__box--badge-highlight {
+      background-image: none;
+      background-color: $purple;
+    }
+
+    &__actions--link {
+      color: $purple;
+    }
+
+    &-loading-overlay {
+      svg {
+        filter: hue-rotate(50deg);
+      }
+    }
+  }
+}

@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import ServicesImage from "../components/servicesImage"
@@ -11,38 +10,33 @@ import BuyImage from "../components/buyImage"
 import PostCard from "../components/postCard"
 
 const HomePage = () => {
-  const data = useStaticQuery(graphql`
+const data = useStaticQuery(graphql`
   query RecentPostsQuery {
-    recentPosts: allWpPost(sort: {fields: date, order: DESC}, limit: 4) {
+    recentPosts: allContentfulBlogPost(limit: 4, sort: {order: DESC, fields: dateAdded}) {
       edges {
         node {
-          title
-          date(formatString: "DD-MM-YYYY")
-          excerpt
           id
           slug
-          featuredImage {
-            node {
-              localFile {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
+          title
+          excerpt
+          dateAdded(formatString: "DD-MM-YY HH:MM")
+          featureImage {
+            fluid(maxWidth: 800) {
+              ...GatsbyContentfulFluid_withWebp
             }
           }
         }
       }
     }
-  }
-  `)
+ }
+`)
+
 
   const recentPosts = data ? data.recentPosts.edges : null;
   
   return (
 
-  <Layout>
+  <>
     <SEO title="Home" />
       <HeroImage />
       <div className="layer-screen layer-screen--white"></div>
@@ -168,14 +162,14 @@ const HomePage = () => {
     </section>
 
     <div className="plife">
-      <h1 className="plife__title color--white">A Photographer's Life</h1>
+      <h1 className="plife__title color--white">A Life in Photos</h1>
       <div className="plife__container">
-        <iframe class="plife__video" allowfullscreen="1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" src="https://www.youtube.com/embed/vFNnUbV8cpg?controls=1&amp;rel=0&amp;playsinline=0&amp;modestbranding=0&amp;autoplay=0&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fcameraflips.co.uk&amp;widgetid=1" id="widget2" width="640" height="360" frameborder="0"></iframe>
+        <iframe className="plife__video" title="A Photographer's Life" allowFullScreen="1" id="widget2" width="640" height="360" frameBorder="0"></iframe>
       </div>
       
     </div>
    
-  </Layout>
+  </>
   )
 }
 

@@ -5,6 +5,7 @@
 @import "_layer.css";
 @import "_header.css";
 @import "_nav.css";
+@import "_snipcart.css";
 @import "_footer.css";
 @import "_main.css";
 @import "_evaluation.css";
@@ -12,6 +13,7 @@
 @import "_services.css";
 @import "_blog.css";
 @import "_recent-posts.css";
+@import "_shop.css";
 @import "_spbsm.css";
 @import "_btn.css";
 @import "_form.css";
