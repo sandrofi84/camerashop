@@ -14,6 +14,9 @@ const ShopPool = ({products, site}) => {
             try {
                 const response = await Axios.get(`${site}/api/get-stock`, { cancelToken: myRequest.token })
                 console.log(response);
+                if (response.data) {
+                    setStock(response.data)
+                }
             } catch(err) {
                 console.log(err);
             }
