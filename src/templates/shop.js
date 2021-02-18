@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 
 const ShopTemplate = ({data}) => {
     const products = data.allProducts.edges;
-    const site = data.site;
+    // const site = data.site;
 
     return (
 
@@ -38,7 +38,7 @@ const ShopTemplate = ({data}) => {
                                 data-item-image={product.node.mainImage.fluid.src}
                                 data-item-description={product.node.shortDescription}
                                 data-item-price={product.node.discountPrice ? product.node.discountPrice : product.node.price}
-                                data-item-url={`${site.siteMetadata.siteUrl}/shop/${product.node.slug}/`}
+                                data-item-url={`/shop/${product.node.slug}/`}
                             >
                                 Add to Cart
                             </button>
@@ -86,15 +86,6 @@ query ShopPageQuery {
         }
       }
     }
-    site {
-
-        siteMetadata {
-  
-          siteUrl
-  
-        }
-  
-      }
 }
 `
 
