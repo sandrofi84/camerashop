@@ -18,40 +18,39 @@ const allowCors = fn => async (req, res) => {
       return
     }
     return await fn(req, res)
-  }
+}
 
 const callAPI = async (req, res) => {
-    
-  const auth = 'Basic ' + Buffer.from(SNIPCART_SECRET_API_KEY + ':' + '').toString('base64');
-  const stock = await Axios.get(API_ENDPOINT, {
-    headers: {
-      Authorization: auth,
-      Accept: 'application/json',
-    },
-  })
-    .then(response => response.json())
-    .then(data => {
-      let results = [];
-      if (data) {
-        const {items} = data;
-        if (items) {
-          results = items.map(i => {
-            return {
-              id: i.userDefinedId,
-              stock: i.stock,
-            };
-          });
-        }
-      }
-      return results;
+
+    const auth = 'Basic ' + Buffer.from(SNIPCART_SECRET_API_KEY + ':' + '').toString('base64');
+    const stock = await Axios.get(API_ENDPOINT, {
+        headers: {
+        Authorization: auth,
+        Accept: 'application/json',
+        },
     })
-    .catch(error => {
+        .then(response => {
+        let results = [];
+        if (response.data) {
+            const {items} = response.data;
+            if (items) {
+            results = items.map(i => {
+                return {
+                id: i.userDefinedId,
+                stock: i.stock,
+                };
+            });
+            }
+        }
+        return results;
+        })
+        .catch(error => {
 
-        return res.status(422).json({body: String(error)})
-        
-    });
+            return res.status(422).json({body: String(error)})
+            
+        });
 
-  res.status(200).json(stock);
+    res.status(200).json(stock);
 };
 
 module.exports = allowCors(callAPI)

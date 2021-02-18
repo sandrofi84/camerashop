@@ -5,6 +5,7 @@ import Axios from 'axios'
 const ShopPool = ({products, site}) => {
     const [stock, setStock] = useState();
     useEffect(() => {
+
         const myRequest = Axios.CancelToken.source();
         // Call serverless function to get stock from Snipcart API
         getStock()
