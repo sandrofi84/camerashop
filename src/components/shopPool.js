@@ -6,16 +6,12 @@ const ShopPool = ({products, site}) => {
     const [stock, setStock] = useState();
     useEffect(() => {
         const myRequest = Axios.CancelToken.source();
-        const headers = {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-          }
         // Call serverless function to get stock from Snipcart API
         getStock()
 
         async function getStock() {
             try {
-                const response = await Axios.get(`${site}/api/get-stock`, { headers }, { cancelToken: myRequest.token })
+                const response = await Axios.get(`${site}/api/get-stock`, { cancelToken: myRequest.token })
                 console.log(response);
             } catch(err) {
                 console.log(err);
