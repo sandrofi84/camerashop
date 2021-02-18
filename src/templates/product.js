@@ -17,7 +17,7 @@ const ProductTemplate = ({data}) => {
                 <h1>{product.productName}</h1>
                 <div>{product.description.description}</div>
                 <button 
-                    className={`snipcart-add-item`}
+                    className={`snipcart-add-item btn btn--shop-product`}
                     data-item-id={product.id}
                     data-item-name={product.productName}
                     data-item-image={product.mainImage.fluid.src}

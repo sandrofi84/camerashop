@@ -18,11 +18,20 @@ $grey: rgba(45, 45, 46, 1);
           "Lucida Sans", Arial, sans-serif;
       }
     }
+
+    &__icon--left {
+      filter: hue-rotate(50deg);
+    }
+
     &-checkout {
       display: inline-block;
       margin-left: 20px;
       color: white;
       cursor: pointer;
+    }
+
+    &-order__invoice-number--highlight {
+      color: $orange;
     }
 
     &-items-count {
