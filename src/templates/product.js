@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 const ProductTemplate = ({data}) => {
 
     const product = data.contentfulProduct;
-    // const site = data.site;
+    const site = data.site;
 
     return (
         <>
@@ -23,7 +23,7 @@ const ProductTemplate = ({data}) => {
                     data-item-image={product.mainImage.fluid.src}
                     data-item-description={product.shortDescription}
                     data-item-price={product.discountPrice ? product.discountPrice : product.price}
-                    data-item-url={`/shop/${product.slug}/`}
+                    data-item-url={`${site.siteMetadata.siteUrl}/shop/${product.slug}/`}
                 >
                     Add to Cart
                 </button>
@@ -74,6 +74,11 @@ query SingleProductQuery($id: String!) {
         shortDescription
         size
         slug
+    }
+    site {
+      siteMetadata {
+        siteUrl
+      }
     }
 }
 `

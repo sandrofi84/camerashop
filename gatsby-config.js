@@ -8,7 +8,7 @@ let URL;
 
 if (process.env.NODE_ENV === 'production') {
 
-  URL = '/';
+  URL = 'https://camerashop.vercel.app/';
 
   } else {
 
@@ -24,7 +24,7 @@ module.exports = {
     title: `CameraShop`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `Sandro Fillinich`,
-    // siteUrl: URL,
+    siteUrl: URL,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
