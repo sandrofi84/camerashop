@@ -8,7 +8,7 @@ const ShopPool = ({products, site}) => {
     
 
     useEffect(() => {
-        const socket = io("ws://api.sandrofi.com/camerashop", { path: '/camerashop/socket.io'});
+        const socket = io("wss://api.sandrofi.com/camerashop", { path: '/camerashop/socket.io'});
         socket.on("inventory changed", () => {
             console.log("Getting New Inventory");
             getStock()
