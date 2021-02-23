@@ -1,0 +1,9 @@
+.filter-tool {
+  &__list {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    cursor: pointer;
+  }
+}

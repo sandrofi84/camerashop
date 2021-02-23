@@ -80,6 +80,12 @@ $grey: rgba(45, 45, 46, 1);
       }
     }
 
+    &-cart-header__options {
+      button {
+        display: none;
+      }
+    }
+
     &-cart-header__close-button {
       svg {
         filter: hue-rotate(50deg);

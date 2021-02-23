@@ -8,6 +8,7 @@ $purple: #4600b0;
   text-decoration: none;
   font-size: 1.5rem;
   border-radius: 4px;
+  cursor: pointer;
 
   &--main {
     background-color: #fc7c3c;
@@ -37,6 +38,12 @@ $purple: #4600b0;
   &--shop-product {
     background-color: #fc7c3c;
     color: white;
-    margin: 20px auto 5px auto;
+    padding: 9px 20px;
+    border-radius: 0px;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
 }

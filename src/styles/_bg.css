@@ -1,6 +1,7 @@
 $orange: rgba(252, 124, 60, 1);
 $purple: #4600b0;
 $grey: rgba(45, 45, 46, 1);
+$lightGrey: #f0f5f6;
 
 .bg {
   &--orange {
@@ -21,5 +22,9 @@ $grey: rgba(45, 45, 46, 1);
 
   &--grey {
     background-color: $grey;
+  }
+
+  &--lightGrey {
+    background-color: $lightGrey;
   }
 }

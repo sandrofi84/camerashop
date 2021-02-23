@@ -1,16 +1,19 @@
+$orange: rgba(252, 124, 60, 1);
+$purple: #4600b0;
+$grey: rgba(45, 45, 46, 1);
+
 .shop {
   &__menu {
     position: fixed;
     top: 0;
     z-index: 8;
-    display: flex;
-    justify-content: space-evenly;
     padding: 90px 150px 20px 150px;
     width: 100vw;
     background-color: rgba(128, 43, 255, 0.8);
   }
 
   &__head-section {
+    display: none;
     text-align: center;
     height: 400px;
     width: 100%;
@@ -23,6 +26,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    padding: 140px 0px 60px 0px;
     width: 100%;
     height: 100%;
   }
@@ -30,12 +34,61 @@
   &__product {
     width: 33%;
     min-height: 300px;
-    padding: 20px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 4px;
+
+    &__sale-tag {
+      z-index: 1;
+      position: absolute;
+      padding: 2px 4px;
+      opacity: 0.9;
+      background-color: rgb(103, 231, 171);
+    }
+
+    &__text {
+      text-align: center;
+    }
+
+    &__name {
+      font-size: 1.5rem;
+    }
+
+    &__description {
+      margin: 15px 0;
+      font-size: 1rem;
+    }
+
+    &__availability {
+      display: flex;
+      align-items: center;
+      margin: auto;
+      margin-bottom: 15px;
+      width: max-content;
+      min-height: 50px;
+      font-size: 1.2rem;
+    }
 
     &__price {
+      color: $purple;
       &--discount {
+        font-size: 1.2rem;
         text-decoration: line-through;
-        color: red;
+        opacity: 0.5;
+      }
+    }
+
+    &__button-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto;
+      width: max-content;
+      border: 1px solid $orange;
+      border-radius: 4px;
+
+      &--disabled {
+        border: 1px solid rgba(252, 124, 60, 0.5);
       }
     }
   }

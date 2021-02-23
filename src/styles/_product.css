@@ -1,0 +1,30 @@
+$orange: rgba(252, 124, 60, 1);
+$purple: #4600b0;
+$grey: rgba(45, 45, 46, 1);
+$lightGrey: #f0f5f6;
+
+.product {
+  &__counter {
+    height: 100%;
+    font-size: 1.4rem;
+    &__minus {
+      display: inline-block;
+      padding: 6px 10px;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    &__plus {
+      display: inline-block;
+      padding: 6px 10px;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    &__count {
+      display: inline-block;
+      padding: 6px 10px;
+      height: 100%;
+    }
+  }
+}
