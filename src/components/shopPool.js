@@ -17,8 +17,8 @@ const ShopPool = ({products, site}) => {
         async function getStock() {
             try {
                 const response = await Axios.get(`https://camerashop.vercel.app/api/get-stock`, { cancelToken: myRequest.token })
+
                 if (response.data) {
-                    console.log("New stock data: ", response.data);
                     setStock(response.data)
                 }
             } catch(err) {
@@ -30,8 +30,10 @@ const ShopPool = ({products, site}) => {
 
         const subscription = client.subscribe({ query: INVENTORY_SUBSCRIPTION }).subscribe({
             next(data) {
-              if (data.data.inventoryUpdates === "New Order Completed") {
-                getStock()
+
+              if (data.data.inventoryUpdates) {
+                console.log("Updated stock: \n", data.data.inventoryUpdates);
+                setStock(data.data.inventoryUpdates)
               }
             },
             error(err) { console.error('err', err); },

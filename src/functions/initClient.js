@@ -28,7 +28,10 @@ export default () => {
 
         const INVENTORY_SUBSCRIPTION = gql`
           subscription OnUpdateInventory {
-            inventoryUpdates
+            inventoryUpdates {
+                id
+                stock
+            }
           }
         `;
 
