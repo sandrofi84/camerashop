@@ -4,6 +4,7 @@ import Img from 'gatsby-image'
 import { useState, useEffect } from 'react'
 
 import ProductCounter from '../components/productCounter'
+import ProductAvailabilityTag from '../components/productAvailabilityTag'
 
 
 const ProductCard = ({product, site, stock}) => {
@@ -28,7 +29,7 @@ const ProductCard = ({product, site, stock}) => {
             <div className="shop__product__text">
                 <h3 className="shop__product__name"><Link to={`/shop/${product.slug}/`} >{product.productName}</Link></h3>
                 <div className="shop__product__description">{product.shortDescription}</div>
-                <div className="shop__product__availability">{loading ? <div className="lds-ring"><div></div><div></div><div></div><div></div></div> : availability === 0 ? <span style={{color: "red"}}>Out of stock</span> : <span style={{color: "green"}}>{availability} items available</span>}</div>
+                <div className="shop__product__availability">{loading ? <div className="lds-ring"><div></div><div></div><div></div><div></div></div> : <ProductAvailabilityTag availability={availability} />}</div>
                 <p className="shop__product__price"><span className={product.discountPrice && "shop__product__price--discount"}>£{product.price}</span> {product.discountPrice && <span>£{product.discountPrice}</span>}</p>
             </div>
             <div className={"shop__product__button-container" + (loading || availability === 0 ? " shop__product__button-container--disabled" : "")}>

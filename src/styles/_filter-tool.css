@@ -5,5 +5,14 @@
     justify-content: space-evenly;
     list-style-type: none;
     cursor: pointer;
+
+    &-item {
+      text-decoration: none;
+      background: none;
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+      cursor: pointer;
+    }
   }
 }

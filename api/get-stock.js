@@ -1,8 +1,6 @@
 const Axios = require('axios');
 const {SNIPCART_SECRET_API_KEY} = process.env;
 
-const API_ENDPOINT = 'https://app.snipcart.com/api/products';
-
 const allowCors = fn => async (req, res) => {
     res.setHeader('Access-Control-Allow-Credentials', true)
     res.setHeader('Access-Control-Allow-Origin', '*')
@@ -23,34 +21,64 @@ const allowCors = fn => async (req, res) => {
 const callAPI = async (req, res) => {
 
     const auth = 'Basic ' + Buffer.from(SNIPCART_SECRET_API_KEY + ':' + '').toString('base64');
-    const stock = await Axios.get(API_ENDPOINT, {
-        headers: {
-        Authorization: auth,
-        Accept: 'application/json',
-        },
-    })
-        .then(response => {
-        let results = [];
-        if (response.data) {
-            const {items} = response.data;
-            if (items) {
-            results = items.map(i => {
-                return {
-                id: i.userDefinedId,
-                stock: i.stock,
-                };
-            });
-            }
-        }
-        return results;
+    const API_ENDPOINT = req.body.productId ? `https://app.snipcart.com/api/products/${req.body.productId}` : 'https://app.snipcart.com/api/products';
+    
+    if (req.body.productId) {
+        // if we are querying only for one product
+        const stock = await Axios.get(API_ENDPOINT, {
+            headers: {
+            Authorization: auth,
+            Accept: 'application/json',
+            },
         })
-        .catch(error => {
+            .then(response => {
+                let result
+            if (response.data) {
+                result = response.data.stock;
+            }
+            return result;
+            })
+            .catch(error => {
+    
+                return res.status(422).json({body: String(error)})
+                
+            });
+    
+        res.status(200).json(stock);
 
-            return res.status(422).json({body: String(error)})
-            
-        });
-
-    res.status(200).json(stock);
+    } else {
+        // if we are querying for the whole stock
+        const stock = await Axios.get(API_ENDPOINT, {
+            headers: {
+            Authorization: auth,
+            Accept: 'application/json',
+            },
+        })
+            .then(response => {
+            let results = [];
+            if (response.data) {
+                const {items} = response.data;
+                if (items) {
+                results = items.map(i => {
+                    return {
+                    id: i.userDefinedId,
+                    stock: i.stock,
+                    };
+                });
+                }
+            }
+            return results;
+            })
+            .catch(error => {
+    
+                return res.status(422).json({body: String(error)})
+                
+            });
+    
+        res.status(200).json(stock);
+    }
+    
+    
 };
 
 module.exports = allowCors(callAPI)

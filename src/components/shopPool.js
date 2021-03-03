@@ -11,6 +11,7 @@ const ShopPool = ({products, site}) => {
     useEffect(() => {
 
         const myRequest = Axios.CancelToken.source();
+        
         // Call serverless function to get stock from Snipcart API
         getStock()
 
@@ -27,7 +28,8 @@ const ShopPool = ({products, site}) => {
         }
 
         const [client, INVENTORY_SUBSCRIPTION] = initClient()
-
+        
+        // Make subscription query to Appsync to get stock updates when someone completes an order
         const subscription = client.subscribe({ query: INVENTORY_SUBSCRIPTION }).subscribe({
             next(data) {
 
@@ -37,7 +39,7 @@ const ShopPool = ({products, site}) => {
               }
             },
             error(err) { console.error('err', err); },
-          })
+        })
 
         return () => {
             myRequest.cancel();
