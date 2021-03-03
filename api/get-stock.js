@@ -21,9 +21,9 @@ const allowCors = fn => async (req, res) => {
 const callAPI = async (req, res) => {
 
     const auth = 'Basic ' + Buffer.from(SNIPCART_SECRET_API_KEY + ':' + '').toString('base64');
-    const API_ENDPOINT = req.body.productId ? `https://app.snipcart.com/api/products/${req.body.productId}` : 'https://app.snipcart.com/api/products';
+    const API_ENDPOINT = req.body ? `https://app.snipcart.com/api/products/${req.body.productId}` : 'https://app.snipcart.com/api/products';
     
-    if (req.body.productId) {
+    if (req.body) {
         // if we are querying only for one product
         const stock = await Axios.get(API_ENDPOINT, {
             headers: {
