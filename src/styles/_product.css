@@ -4,6 +4,68 @@ $grey: rgba(45, 45, 46, 1);
 $lightGrey: #f0f5f6;
 
 .product {
+  &-page {
+    &__container {
+      display: flex;
+      padding: 60px 0;
+    }
+
+    &__images-container {
+      display: flex;
+      position: sticky;
+      top: 80px;
+    }
+
+    &__section {
+      &-left {
+        width: 50%;
+        padding: 60px 60px;
+      }
+
+      &-right {
+        width: 50%;
+        padding: 60px 60px;
+
+        hr {
+          margin: 40px auto;
+          width: 60%;
+          border: 1px solid $purple;
+          color: $purple;
+        }
+      }
+    }
+
+    &__summary-box {
+      position: sticky;
+      top: 80px;
+
+      &__price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+
+  &__description {
+    margin: 20px 0;
+  }
+
+  &__features {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      color: $purple;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
   &__counter {
     height: 100%;
     font-size: 1.4rem;

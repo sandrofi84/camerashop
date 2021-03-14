@@ -23,6 +23,11 @@ header {
     margin-top: 10px;
     font-size: 2rem;
 
+    &-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
     &__deco {
       z-index: -1;
       position: relative;

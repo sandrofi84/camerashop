@@ -3,13 +3,12 @@ import {Link} from 'gatsby'
 import Img from 'gatsby-image'
 import { useState, useEffect } from 'react'
 
-import ProductCounter from '../components/productCounter'
 import ProductAvailabilityTag from '../components/productAvailabilityTag'
+import AddToCartButton from '../components/addToCartButton'
 
 
-const ProductCard = ({product, site, stock}) => {
+const ProductCard = ({product, siteUrl, stock}) => {
     const [availability, setAvailability] = useState();
-    const [quantity, setQuantity] = useState(1);
     const [loading, setLoading] = useState(true);
 
     const saleTagStyle = product.discountPrice ? {display: "block"} : {display: "none"}
@@ -32,24 +31,7 @@ const ProductCard = ({product, site, stock}) => {
                 <div className="shop__product__availability">{loading ? <div className="lds-ring"><div></div><div></div><div></div><div></div></div> : <ProductAvailabilityTag availability={availability} />}</div>
                 <p className="shop__product__price"><span className={product.discountPrice && "shop__product__price--discount"}>£{product.price}</span> {product.discountPrice && <span>£{product.discountPrice}</span>}</p>
             </div>
-            <div className={"shop__product__button-container" + (loading || availability === 0 ? " shop__product__button-container--disabled" : "")}>
-                <button 
-                    className={`snipcart-add-item btn btn--shop-product`}
-                    data-item-id={product.id}
-                    data-item-name={product.productName}
-                    data-item-image={product.mainImage.fluid.src}
-                    data-item-description={product.shortDescription}
-                    data-item-price={product.discountPrice ? product.discountPrice : product.price}
-                    data-item-url={`${site}/shop/${product.slug}/`}
-                    data-item-quantity={quantity}
-                    data-item-max-quantity={availability}
-
-                    disabled={loading || availability === 0}
-                >
-                    Add to Cart
-                </button>
-                {availability > 0 && <ProductCounter count={quantity} setCount={setQuantity} max={availability} />}
-            </div>
+            <AddToCartButton product={product} availability={availability} loading={loading} siteUrl={siteUrl} centered={true} />
 
         </div>
     )

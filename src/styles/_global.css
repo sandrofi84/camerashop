@@ -10,6 +10,11 @@ body {
   overflow-x: hidden;
 }
 
+button {
+  background-color: inherit;
+  font-size: inherit;
+}
+
 h1 {
   font-size: 3rem;
 }

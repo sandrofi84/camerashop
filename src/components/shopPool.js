@@ -4,7 +4,7 @@ import Axios from 'axios'
 import initClient from '../functions/initClient'
 
 
-const ShopPool = ({products, site}) => {
+const ShopPool = ({products, siteUrl}) => {
     const [stock, setStock] = useState();
     
 
@@ -45,14 +45,14 @@ const ShopPool = ({products, site}) => {
             myRequest.cancel();
             subscription.unsubscribe();
         }
-    }, [site])
+    }, [siteUrl])
 
     return (
         <div className="shop__pool">
             { !products.length && <h3>There are no products matching your search!</h3>}
             {
                 products.map(product => {
-                    return <ProductCard key={product.node.id} product={product.node} site={site} stock={stock} />
+                    return <ProductCard key={product.node.id} product={product.node} siteUrl={siteUrl} stock={stock} />
                 })
             }
         </div>

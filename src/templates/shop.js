@@ -21,7 +21,7 @@ const ShopTemplate = ({data}) => {
                   <h1 className="shop__head-section__title">SHOP</h1>
               </div>
               <div className="wrapper">
-                  <ShopPool products={filteredProducts ? filteredProducts : products} site={site.siteMetadata.siteUrl} />
+                  <ShopPool products={filteredProducts ? filteredProducts : products} siteUrl={site.siteMetadata.siteUrl} />
               </div>
             </div>
             
