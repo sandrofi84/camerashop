@@ -36,7 +36,7 @@ const callAPI = async (req, res) => {
       console.log("This is response: ", response);
       
       if (response.data.stock) {
-        res.status(200).json(reponse.data.stock);
+        res.status(200).json(response.data.stock);
       } else {
         res.status(200).json(0);
       }
