@@ -36,14 +36,28 @@ $lightGrey: #f0f5f6;
     }
 
     &__summary-box {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
       position: sticky;
-      top: 80px;
-
-      &__price {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+      bottom: 0px;
+      height: 150px;
+      max-height: 150px;
+      padding: 20px 40px;
+      background-color: rgba(128, 43, 255, 0.8);
+    }
+    &__price {
+      color: white;
+      &--discount {
+        font-size: 1.2rem;
+        text-decoration: line-through;
+        opacity: 0.5;
       }
+    }
+
+    &__availability {
+      padding: 1px 4px;
+      border-radius: 30px;
     }
   }
 

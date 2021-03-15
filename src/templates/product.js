@@ -36,6 +36,8 @@ const ProductTemplate = ({data}) => {
               }
           } catch(err) {
               console.log(err);
+              setAvailability(0)
+              setLoading(false)
           }
       }
 
@@ -59,16 +61,7 @@ const ProductTemplate = ({data}) => {
               </div>
 
               <div className="product-page__section-right">
-                <div className="product-page__summary-box bg--white">
-                  <h1 className="product__name color--purple">{product.productName}</h1>
-                  <div className="product-page__summary-box__price">
-                    <AddToCartButton product={product} availability={availability} loading={loading} siteUrl={site.siteMetadata.siteUrl} />
-                    <h2 className="shop__product__price"><span className={product.discountPrice && "shop__product__price--discount"}>£{product.price}</span> {product.discountPrice && <span>£{product.discountPrice}</span>}</h2>
-                  </div>
-                  <div className="shop__product__availability">{loading ? <div className="lds-ring"><div></div><div></div><div></div><div></div></div> : <ProductAvailabilityTag availability={availability} />}</div>
-                </div>
-                
-                
+              <h1 className="product__name color--purple">{product.productName}</h1>                
                 <hr />
 
                 <div className="product__description">{product.description.description}</div>
@@ -77,6 +70,13 @@ const ProductTemplate = ({data}) => {
               
               </div>
 
+            </div>
+            <div className="product-page__summary-box">
+              <Img style={{width: "130px", height: "100px"}} fluid={product.mainImage.fluid} />
+              <h3 className="product-page__name color--white">{product.productName}</h3>
+              <div className="product-page__availability bg--white">{loading ? <div className="lds-ring"><div></div><div></div><div></div><div></div></div> : <ProductAvailabilityTag availability={availability} />}</div>
+              <h2 className="product-page__price"><span className={product.discountPrice && "product-page__price--discount"}>£{product.price}</span> {product.discountPrice && <span>£{product.discountPrice}</span>}</h2>
+              <AddToCartButton product={product} availability={availability} loading={loading} siteUrl={site.siteMetadata.siteUrl} />    
             </div>
         </>
         

@@ -15,9 +15,14 @@ const ProductCard = ({product, siteUrl, stock}) => {
     
     useEffect(() => {
         if (stock) {
-            const updatedAvailability = stock.filter(item => item.id === product.id)[0].stock
-            setAvailability(updatedAvailability)
-            setLoading(false)
+            const filteredStock = stock.filter(item => item.id === product.id)
+            if (filteredStock.length > 0) {
+                setAvailability(filteredStock[0].stock)
+                setLoading(false)
+            } else {
+                setAvailability(0)
+                setLoading(false)
+            }
         }
     }, [stock, product])
     

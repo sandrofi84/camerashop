@@ -25,6 +25,7 @@ $grey: rgba(45, 45, 46, 1);
   &__pool {
     display: flex;
     flex-direction: row;
+    flex-flow: wrap;
     justify-content: space-around;
     padding: 140px 0px 60px 0px;
     width: 100%;
@@ -32,7 +33,8 @@ $grey: rgba(45, 45, 46, 1);
   }
 
   &__product {
-    width: 33%;
+    width: 30%;
+    min-width: 30%;
     min-height: 300px;
     margin: 10px;
     padding: 10px;

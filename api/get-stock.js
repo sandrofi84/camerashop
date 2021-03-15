@@ -20,63 +20,59 @@ const allowCors = fn => async (req, res) => {
 
 const callAPI = async (req, res) => {
 
-    const auth = 'Basic ' + Buffer.from(SNIPCART_SECRET_API_KEY + ':' + '').toString('base64');
-    const API_ENDPOINT = req.body ? `https://app.snipcart.com/api/products/${req.body.productId}` : 'https://app.snipcart.com/api/products';
-    
-    if (req.body) {
-        // if we are querying only for one product
-        const stock = await Axios.get(API_ENDPOINT, {
-            headers: {
-            Authorization: auth,
-            Accept: 'application/json',
-            },
-        })
-            .then(response => {
-                let result
-            if (response.data) {
-                result = response.data.stock;
-            }
-            return result;
-            })
-            .catch(error => {
-    
-                return res.status(422).json({body: String(error)})
-                
-            });
-    
-        res.status(200).json(stock);
+  const auth = 'Basic ' + Buffer.from(SNIPCART_SECRET_API_KEY + ':' + '').toString('base64');
+  const API_ENDPOINT = req.body ? `https://app.snipcart.com/api/products/${req.body.productId}` : 'https://app.snipcart.com/api/products';
 
-    } else {
-        // if we are querying for the whole stock
-        const stock = await Axios.get(API_ENDPOINT, {
-            headers: {
-            Authorization: auth,
-            Accept: 'application/json',
-            },
-        })
-            .then(response => {
-            let results = [];
-            if (response.data) {
-                const {items} = response.data;
-                if (items) {
-                results = items.map(i => {
-                    return {
-                    id: i.userDefinedId,
-                    stock: i.stock,
-                    };
-                });
-                }
-            }
-            return results;
-            })
-            .catch(error => {
-    
-                return res.status(422).json({body: String(error)})
-                
-            });
-    
-        res.status(200).json(stock);
+  if (req.body) {
+    // if we are querying only for one product
+    try {
+      const response = await Axios.get(API_ENDPOINT, {
+        headers: {
+        Authorization: auth,
+        Accept: 'application/json',
+        },
+      })
+      
+      console.log("This is response: ", response);
+      
+      if (response.data) {
+        res.status(200).json(reponse.data.stock);
+      }
+
+    } catch(err) {
+      res.status(err.response.status).json({body: String(err)})
     }
+  } else {
+    // if we are querying for the whole stock
+    try {
+      const response = await Axios.get(API_ENDPOINT, {
+        headers: {
+        Authorization: auth,
+        Accept: 'application/json',
+        },
+      })
+      console.log("This is response: ", response);
+
+      let results = [];
+      if (response.data) {
+        const {items} = response.data;
+        
+        if (items) {
+          results = items.map(i => {
+              return {
+              id: i.userDefinedId,
+              stock: i.stock,
+              };
+          });
+        }
+      }
+      
+      res.status(200).json(results);
+
+    } catch(err) {
+      res.status(err.response.status).json({body: String(err)})
+    }
+  }
     
     
 };

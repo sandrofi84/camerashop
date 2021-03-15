@@ -6,7 +6,8 @@ $purple: #4600b0;
   position: relative;
   width: 40px;
   height: 40px;
-  padding-top: 5px;
+  padding-top: 7px;
+  padding-left: 4px;
 }
 .lds-ring div {
   box-sizing: border-box;
