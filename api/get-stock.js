@@ -42,7 +42,7 @@ const callAPI = async (req, res) => {
       }
 
     } catch(err) {
-      if (err.response.status) {
+      if (err.response) {
         res.status(err.response.status).json({body: String(err)})
       } else {
         res.status(500).json({body: String(err)})
@@ -76,7 +76,7 @@ const callAPI = async (req, res) => {
       res.status(200).json(results);
 
     } catch(err) {
-      if (err.response.status) {
+      if (err.response) {
         res.status(err.response.status).json({body: String(err)})
       } else {
         res.status(500).json({body: String(err)})
