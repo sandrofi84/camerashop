@@ -35,12 +35,18 @@ const callAPI = async (req, res) => {
       
       console.log("This is response: ", response);
       
-      if (response.data) {
+      if (response.data.stock) {
         res.status(200).json(reponse.data.stock);
+      } else {
+        res.status(200).json(0);
       }
 
     } catch(err) {
-      res.status(err.response.status).json({body: String(err)})
+      if (err.response.status) {
+        res.status(err.response.status).json({body: String(err)})
+      } else {
+        res.status(500).json({body: String(err)})
+      }
     }
   } else {
     // if we are querying for the whole stock
@@ -61,7 +67,7 @@ const callAPI = async (req, res) => {
           results = items.map(i => {
               return {
               id: i.userDefinedId,
-              stock: i.stock,
+              stock: i.stock || 0,
               };
           });
         }
@@ -70,7 +76,11 @@ const callAPI = async (req, res) => {
       res.status(200).json(results);
 
     } catch(err) {
-      res.status(err.response.status).json({body: String(err)})
+      if (err.response.status) {
+        res.status(err.response.status).json({body: String(err)})
+      } else {
+        res.status(500).json({body: String(err)})
+      }
     }
   }
     
