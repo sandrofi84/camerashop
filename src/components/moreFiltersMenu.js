@@ -14,7 +14,7 @@ const MoreFiltersMenu = ({makes, minPriceDefault, maxPriceDefault}) => {
         if (appState.activeFilters.price.length === 0) {
             setMinMaxValues([minPriceDefault,maxPriceDefault])
         }
-    },[appState.activeFilters.price])
+    },[appState.activeFilters.price, minPriceDefault, maxPriceDefault])
 
     useEffect(() => {
         let delayedRequest
@@ -26,14 +26,14 @@ const MoreFiltersMenu = ({makes, minPriceDefault, maxPriceDefault}) => {
         return () => {
             clearTimeout(delayedRequest)
         }
-    },[minMaxValues])
+    },[minMaxValues, appDispatch])
 
     useEffect(() => {
         if (appState.requestFilterCounter) {
             appDispatch({type: "setPriceFilter", price: minMaxValues})
             appDispatch({type: "filterProducts"})
         }
-    }, [appState.requestFilterCounter])
+    }, [appState.requestFilterCounter, appDispatch])
 
     
 
