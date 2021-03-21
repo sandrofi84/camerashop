@@ -1,4 +1,9 @@
+$orange: rgba(252, 124, 60, 1);
+$purple: #4600b0;
+$grey: rgba(45, 45, 46, 1);
+
 .filter-tool {
+
   &__list {
     width: 100%;
     display: flex;
@@ -14,5 +19,55 @@
       color: inherit;
       cursor: pointer;
     }
+  }
+
+  &__clear-filters-btn {
+    position: fixed;
+    top: 130px;
+    left: 10px;
+    z-index: 100;
+    width: 125px;
+    padding: 5px;
+    background-color: rgba(252, 60, 150, 0.8);
+    border: 1px solid white;
+
+    img {
+      position: relative;
+      top: 2px;
+      margin-left: 4px;
+      width: 15px;
+      height: 15px;
+      filter: invert();
+    }
+  }
+
+  &__more-filters-btn {
+    height: max-content;
+    text-decoration: none;
+    background: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
+    transition: all .3s ease-out;
+
+    &--pressed {
+      background-color: $purple;
+      border-radius: 5px;
+      transform: scale(.9);
+    }
+
+    img {
+      display: inline-block;
+      filter: invert();
+      width: 20px;
+      height: 20px;;
+    }
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+    }
+
   }
 }

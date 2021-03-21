@@ -3,42 +3,80 @@ $purple: #4600b0;
 $grey: rgba(45, 45, 46, 1);
 
 .shop {
+  padding-top: 0px;
+
   &__menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     position: fixed;
-    top: 0;
-    z-index: 8;
-    padding: 90px 150px 20px 150px;
+    top: 60px;
+    z-index: 100;
+    padding: 0px 20px 0px 20px;
     width: 100vw;
+    height: 70px;
     background-color: rgba(128, 43, 255, 0.8);
   }
 
-  &__head-section {
-    display: none;
-    text-align: center;
-    height: 400px;
-    width: 100%;
-
-    &__title {
-      padding-top: 300px;
-    }
-  }
   &__pool {
     display: flex;
     flex-direction: row;
     flex-flow: wrap;
     justify-content: space-around;
-    padding: 140px 0px 60px 0px;
     width: 100%;
     height: 100%;
+    min-height: 600px;
+
+    &-container {
+      padding: 140px 0px 60px 0px;
+      transition: padding .3s ease-out;
+
+      &--push-right {
+        padding-left: 250px;
+      }
+    } 
+    
+    &-sortby {
+      float: right;
+      margin: 10px 20px;
+
+      select {
+        appearance: none;
+        width: 200px;
+        padding: 8px;
+        border: 1px solid $purple;
+        border-radius: 0px;
+        background-image: url("../images/triangle-bottom-arrow.svg");
+        background-repeat: no-repeat;
+        background-size: 10px;
+        background-position: right;
+        background-position-x: 95%;
+
+      }
+    }
+
+    &-no-match-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
   }
 
   &__product {
     width: 30%;
     min-width: 30%;
-    min-height: 300px;
+    height: max-content;
     margin: 10px;
     padding: 10px;
     border-radius: 4px;
+
+    &__picture {
+      width: 100%; 
+      height: 200px;
+      max-height: 200px;
+    }
 
     &__sale-tag {
       z-index: 1;
@@ -53,11 +91,12 @@ $grey: rgba(45, 45, 46, 1);
     }
 
     &__name {
-      font-size: 1.5rem;
+      margin: 15px 0;
+      font-size: 1.1rem;
     }
 
     &__description {
-      margin: 15px 0;
+      margin-bottom: 5px;
       font-size: 1rem;
     }
 
@@ -65,7 +104,7 @@ $grey: rgba(45, 45, 46, 1);
       display: flex;
       align-items: center;
       margin: auto;
-      margin-bottom: 15px;
+      margin-bottom: 5px;
       width: max-content;
       min-height: 50px;
       font-size: 1.2rem;
@@ -84,8 +123,9 @@ $grey: rgba(45, 45, 46, 1);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 20px 0;
+      margin: 15px 0 10px 0;
       width: max-content;
+      min-width: 184px;
       border: 1px solid $orange;
       border-radius: 4px;
       background-color: white;

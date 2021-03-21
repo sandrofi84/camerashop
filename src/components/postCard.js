@@ -7,7 +7,7 @@ const PostCard = ({post}) => {
     return (
         <div className="post__card">
             <div className="post__card__picture">
-                <Img style={{width: "100%", height: "450px"}} imgStyle={{width: "100%", height: "100%", objectFit: "cover"}} fluid={featureImage.fluid} />
+                <Img style={{height: "100%"}} imgStyle={{height: "100%"}} fluid={featureImage.fluid} />
             </div>
             <div className="post__card__text">
                 <h3 className="post__card__text-title">{title}</h3>

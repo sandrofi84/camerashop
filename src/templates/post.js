@@ -27,10 +27,13 @@ const Post = ({data}) => {
     return (
         <>
             <SEO title={post.title} />
-            <div>
-                <Img fluid={post.featureImage.fluid} />
-                <h1>{post.title}</h1>
-                <div>{documentToReactComponents(richText, options)}</div>
+            <div className="post bg--purple">
+              <div className="post__picture">
+                <Img style={{height: "100%"}} fluid={post.featureImage.fluid} />
+              </div>
+
+                <h1 className="post__title color--purple">{post.title}</h1>
+                <div className="post__richtext color--white">{documentToReactComponents(richText, options)}</div>
             </div>
         </>
         
@@ -54,7 +57,7 @@ query SinglePostQuery($id: String!) {
       references {
         ... on ContentfulAsset {
           contentful_id
-          fluid(maxWidth: 600) {
+          fluid(maxWidth: 800) {
             ...GatsbyContentfulFluid_withWebp
           }
         }

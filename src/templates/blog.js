@@ -1,8 +1,8 @@
 import React from 'react'
-import {graphql, Link} from 'gatsby'
-import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 
 import SEO from "../components/seo"
+import PostCard from "../components/postCard"
 
 const BlogTemplate = ({data}) => {
     const posts = data.allPosts.edges;
@@ -11,20 +11,18 @@ const BlogTemplate = ({data}) => {
 
         <>
             <SEO title="Blog" />
-            <div className="wrapper wrapper--vertical">
-              <h1 className="blog__title">Blog</h1>
-                {
-                    posts.map(post => (
-                    <div key={post.node.id}>
-                        <h3><Link to={`/blog/${post.node.slug}`} >{post.node.title}</Link></h3>
-                        <Img fixed={post.node.featureImage.fixed} />
-                        <div>{post.node.excerpt}</div>
-                    </div>
-                    
-                    ))
-                }
+            <div className="blog bg--purple">
+              <div className="wrapper wrapper--vertical">
+                <h1 className="blog__title color--white">Blog</h1>
+                <div className="blog__pool">
+                  {
+                      posts.map(post => (
+                        <PostCard key={post.node.id} post={post.node} />
+                      ))
+                  }
+                </div>
+              </div>
             </div>
-
         </>
        
     )
@@ -43,8 +41,8 @@ query allPostsQuery {
         excerpt
         dateAdded(formatString: "DD-MM-YY HH:MM")
         featureImage {
-          fixed(width: 800) {
-            ...GatsbyContentfulFixed_withWebp
+          fluid(maxWidth: 800) {
+            ...GatsbyContentfulFluid_withWebp
           }
         }
       }

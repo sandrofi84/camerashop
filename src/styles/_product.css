@@ -16,6 +16,10 @@ $lightGrey: #f0f5f6;
       top: 80px;
     }
 
+    &__name {
+      font-size: 1.5rem;
+    }
+
     &__section {
       &-left {
         width: 50%;
@@ -37,17 +41,22 @@ $lightGrey: #f0f5f6;
 
     &__summary-box {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-around;
       align-items: center;
       position: sticky;
       bottom: 0px;
-      height: 150px;
       max-height: 150px;
-      padding: 20px 40px;
+      padding: 10px 40px;
       background-color: rgba(128, 43, 255, 0.8);
+
+      & > * {
+        margin: 0 20px;
+      }
     }
     &__price {
       color: white;
+      font-size: 1.8rem;
+
       &--discount {
         font-size: 1.2rem;
         text-decoration: line-through;
@@ -57,6 +66,8 @@ $lightGrey: #f0f5f6;
 
     &__availability {
       padding: 1px 4px;
+      width: max-content;
+      min-width: 130px;
       border-radius: 30px;
     }
   }
@@ -82,24 +93,24 @@ $lightGrey: #f0f5f6;
   }
   &__counter {
     height: 100%;
-    font-size: 1.4rem;
+    font-size: 1rem;
     &__minus {
       display: inline-block;
-      padding: 6px 10px;
+      padding: 6px 8px;
       height: 100%;
       cursor: pointer;
     }
 
     &__plus {
       display: inline-block;
-      padding: 6px 10px;
+      padding: 6px 8px;
       height: 100%;
       cursor: pointer;
     }
 
     &__count {
       display: inline-block;
-      padding: 6px 10px;
+      padding: 6px 8px;
       height: 100%;
     }
   }

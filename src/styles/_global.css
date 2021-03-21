@@ -8,6 +8,7 @@ body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   overflow-x: hidden;
+
 }
 
 button {
@@ -28,9 +29,23 @@ h3 {
 }
 
 p {
+  display: inline-block;
   font-size: 1.5rem;
+}
+
+a {
+  color: inherit;
+}
+
+ol, ul {
+  list-style-position: inside;
 }
 
 button {
   border: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
 }

@@ -1,2 +1,14 @@
 .blog {
+    &__title {
+        margin: auto;
+        width: max-content;
+    }
+
+    &__pool {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 100%;
+        padding: 60px 0;
+    }
 }

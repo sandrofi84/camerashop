@@ -17,7 +17,7 @@ $grey: rgba(45, 45, 46, 1);
 
     &:hover {
       .nav__link__deco {
-        opacity: 0.8;
+        opacity: 1;
         transform: scale(2.6);
       }
     }

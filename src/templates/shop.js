@@ -1,28 +1,35 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import {graphql} from 'gatsby'
 
 import SEO from "../components/seo"
 import FilterTool from "../components/filterTool"
+
 import ShopPool from "../components/shopPool"
+import StateContext from "../context/stateContext"
+import DispatchContext from '../context/dispatchContext'
 
 const ShopTemplate = ({data}) => {
-    const [filteredProducts, setFilteredProducts] = useState();
+    const appState = useContext(StateContext);
+    const appDispatch = useContext(DispatchContext);
     const products = data.allProducts.edges;
     const categories = data.allCategories.edges;
+    const makes = data.allMakes.edges;
     const site = data.site;
+
+    useEffect(() => {
+      if (!appState.products) {
+        appDispatch({type: "setProducts", products: products})
+      }
+    }, [products, appDispatch, appState.products])
 
     return (
 
         <>
             <SEO title="Shop" />
-            <FilterTool categories={categories} products={products} setFilteredProducts={setFilteredProducts} />
+
             <div className="shop bg--lightGrey">
-              <div className="shop__head-section">
-                  <h1 className="shop__head-section__title">SHOP</h1>
-              </div>
-              <div className="wrapper">
-                  <ShopPool products={filteredProducts ? filteredProducts : products} siteUrl={site.siteMetadata.siteUrl} />
-              </div>
+              <FilterTool products={products} categories={categories} makes={makes} />
+              <ShopPool products={appState.filteredProducts ? appState.filteredProducts : products} siteUrl={site.siteMetadata.siteUrl} />
             </div>
             
         </>
@@ -34,7 +41,7 @@ export default ShopTemplate
 
 export const shopPageQuery = graphql`
 query ShopPageQuery {
-    allProducts: allContentfulProduct {
+    allProducts: allContentfulProduct(sort: {order: DESC, fields: dateAdded}) {
       edges {
         node {
           productName
@@ -71,6 +78,14 @@ query ShopPageQuery {
     site {
       siteMetadata {
         siteUrl
+      }
+    }
+    allMakes: allContentfulMake {
+      edges {
+        node {
+          makeName
+          id
+        }
       }
     }
 }

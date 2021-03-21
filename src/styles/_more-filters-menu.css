@@ -1,0 +1,91 @@
+$orange: rgba(252, 124, 60, 1);
+$purple: #4600b0;
+$grey: rgba(45, 45, 46, 1);
+
+.more-filters-menu {
+    display: block;
+    width: 250px;
+    height: 100%;
+    padding: 20px;
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    .rc-slider {
+        &-handle {
+            border: 2px solid $orange;
+
+            &:focus {
+                outline: none;
+                border-color: $orange;   
+            }
+
+            &-dragging {
+                border-color: $orange !important;
+                box-shadow: 0 0 0 6px rgba(252, 124, 60, .3) !important;
+            }
+        }
+        &-rail {
+            border: 2px solid white;
+        }
+        &-track {
+            border: 2px solid $orange;
+        }
+    }
+
+
+    &__container {
+        z-index: 10;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-250px);
+        height: 100vh;
+        overflow-y: hidden;
+        transition: transform .3s ease-out;
+
+        &--show {
+            transform: translateY(0px);
+        }
+    }
+
+    &__invisible-block {
+        display: block;
+        height: 130px;
+        min-height: 130px;
+    }
+
+    &__by-make {
+        padding: 20px 0;
+
+        input {
+            margin-right: 5px;
+        }
+    }
+
+    &__more-filters {
+        padding: 20px 0;
+
+        input {
+            margin-right: 5px;
+        }
+    }
+
+    &__price-filter {
+        padding: 20px 0;
+
+        &-container {
+            
+        }
+
+        &-range {
+           margin-bottom: 10px;
+        }
+
+        &-minmax {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
