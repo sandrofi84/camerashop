@@ -125,7 +125,6 @@ $grey: rgba(45, 45, 46, 1);
       justify-content: center;
       margin: 15px 0 10px 0;
       width: max-content;
-      min-width: 184px;
       border: 1px solid $orange;
       border-radius: 4px;
       background-color: white;

@@ -45,6 +45,7 @@ $lightGrey: #f0f5f6;
       align-items: center;
       position: sticky;
       bottom: 0px;
+      width: 100vw;
       max-height: 150px;
       padding: 10px 40px;
       background-color: rgba(128, 43, 255, 0.8);
@@ -93,6 +94,7 @@ $lightGrey: #f0f5f6;
   }
   &__counter {
     height: 100%;
+    min-width: max-content;
     font-size: 1rem;
     &__minus {
       display: inline-block;

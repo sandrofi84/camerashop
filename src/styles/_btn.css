@@ -36,6 +36,8 @@ $purple: #4600b0;
   }
 
   &--shop-product {
+    height: 100%;
+    min-width: max-content;
     background-color: #fc7c3c;
     font-size: 1rem;
     color: white;
