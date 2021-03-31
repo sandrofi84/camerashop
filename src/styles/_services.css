@@ -34,9 +34,6 @@
     flex-direction: column;
     border-radius: 20px;
 
-    &:first-child {
-      transform: translateY(20px);
-    }
 
     &__picture-frame {
       display: flex;

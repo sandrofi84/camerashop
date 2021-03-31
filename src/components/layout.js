@@ -1,5 +1,5 @@
 
-import React from "react"
+import React, { useEffect } from "react"
 import {useImmerReducer} from "use-immer"
 
 import Header from "./header"
@@ -80,6 +80,43 @@ const Layout = ({ children }) => {
   }
 
   const [appState, appDespatch] = useImmerReducer(reducer, initialState);
+
+  useEffect(() => {
+    let unsubscribe;
+    
+    const handler = () => {
+        unsubscribe = window.Snipcart.events.on('item.adding', (parsedCartItem) => {
+        const cartItems = window.Snipcart.store.getState().cart.items.items;
+        let filteredCart = [];
+        if (cartItems.length > 0) {
+          filteredCart = cartItems.filter(item => item.id === parsedCartItem.id)
+        }
+        // we want to animate the cart count badge only when an item is actually added to the cart
+        // so we have to check if the item max quantity has already been reached
+        if (filteredCart.length === 0 || filteredCart[0]?.quantity !== parsedCartItem.maxQuantity) {
+          document.getElementById(parsedCartItem.id).disabled = true;
+          document.getElementById("snipcart-items-count").classList.add("animation--expand")
+          
+          setTimeout(()=>{
+            document.getElementById(parsedCartItem.id).disabled = false;
+            document.getElementById("snipcart-items-count").classList.remove("animation--expand")
+          }, 600)
+        }
+      })
+    }
+
+    // when snipcart is ready we start listening for when an item is added to the cart so we 
+    // can animate the cart count badge
+    document.addEventListener('snipcart.ready', handler);
+
+    return () => {
+      // cleanup
+        if (unsubscribe) {
+          unsubscribe()
+        }
+        document.removeEventListener('snipcart.ready', handler)
+    }
+  }, [])
 
   return (
       <StateContext.Provider value={appState}>

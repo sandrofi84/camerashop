@@ -11,28 +11,55 @@ $purple: #4600b0;
   cursor: pointer;
 
   &--main {
+    margin: 40px 0 0 0;
     background-color: #fc7c3c;
     /*color: #2a0169;*/
     color: white;
+    border: 1px solid $orange;
 
-    margin: 40px 0 0 0;
+    &:hover {
+      color: $orange;
+      background-color: white;
+      border: 1px solid $orange;
+    }
   }
 
   &--services {
     background-color: #fc7c3c;
     color: white;
     margin: 20px auto 5px auto;
+    border: 1px solid $orange;
+
+    &:hover {
+      color: $orange;
+      background-color: white;
+      border: 1px solid $orange;
+    }
   }
 
   &--form {
     background-color: $purple;
     color: #fff;
+    border: 1px solid $purple;
+
+    &:hover {
+      color: $purple;
+      background-color: white;
+      border: 1px solid $purple;
+    }
   }
 
   &--buy {
     color: #fff;
     background-color: $purple;
     margin: 30px auto 0 auto;
+    border: 1px solid $purple;
+
+    &:hover {
+      color: $purple;
+      background-color: white;
+      border: 1px solid $purple;
+    }
   }
 
   &--shop-product {
@@ -43,6 +70,10 @@ $purple: #4600b0;
     color: white;
     padding: 9px 15px;
     border-radius: 0px;
+
+    &:hover {
+      background-color: $purple;
+    }
 
     &:disabled {
       opacity: 0.5;

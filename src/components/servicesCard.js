@@ -8,7 +8,7 @@ const servicesCard = ({image, serviceInfo}) => {
 
 
     return (
-        <div className="services__card">
+        <div className="services__card" data-sal="slide-up" data-sal-duration="700" data-sal-easing="ease-out">
           <div className="services__card__picture-frame">
               <Img style={{height: "300px", width:"250px", transform: "scale(1.5) translateY(-10px)"}} imgStyle={{objectFit: "contain"}} fluid={image} />
           </div>

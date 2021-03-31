@@ -31,9 +31,19 @@ const Post = ({data}) => {
               <div className="post__picture">
                 <Img style={{height: "100%"}} fluid={post.featureImage.fluid} />
               </div>
-
+              <div className="post__title-container">
                 <h1 className="post__title color--purple">{post.title}</h1>
-                <div className="post__richtext color--white">{documentToReactComponents(richText, options)}</div>
+              </div>
+              
+              <div className="post__author-container">
+                <p className="color--white"><i>written on {post.dateAdded} by</i></p>
+                <div className="post__author-info">
+                  <Img style={{marginRight: "20px", width: "80px", height: "80px", borderRadius: "40px"}} fluid={post.author.avatar.fluid} />
+                  <h3 className="color--orange">{post.author.name}</h3>
+                </div>
+              </div>
+                
+              <div className="post__richtext color--white">{documentToReactComponents(richText, options)}</div>
             </div>
         </>
         
@@ -51,6 +61,11 @@ query SinglePostQuery($id: String!) {
     title
     author {
       name
+      avatar {
+        fluid(maxWidth: 100) {
+          ...GatsbyContentfulFluid_withWebp
+        }
+      }
     }
     body {
       raw

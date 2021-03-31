@@ -7,6 +7,7 @@ const AddToCartButton = ({product, loading, availability, siteUrl, centered}) =>
     return (
         <div style={centered ? {marginLeft: "auto", marginRight: "auto"} : {}} className={"shop__product__button-container" + (loading || availability === 0 ? " shop__product__button-container--disabled" : "")}>
             <button 
+                id={product.id}
                 className={`snipcart-add-item btn btn--shop-product`}
                 data-item-id={product.id}
                 data-item-name={product.productName}

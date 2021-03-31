@@ -1,5 +1,7 @@
 $orange: rgba(252, 124, 60, 1);
 $purple: #4600b0;
+$grey: rgba(45, 45, 46, 1);
+$lightGrey: #f0f5f6;
 
 .post {
   &__card {
@@ -55,14 +57,33 @@ $purple: #4600b0;
     min-height: 700px;
   }
 
-  &__title {
+  &__title-container {
     position: absolute;
     top: 45vh;
+  }
+
+  &__title {
     padding: 30px 60px;
     background-color: rgba(255, 255, 255, .5);
     border: 1px solid $purple;
     border-left: none;
+  }
 
+  &__author {
+    &-container {
+      padding: 10px 60px;
+      background-color: rgba(255, 255, 255, .2);
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
+
+    &-info {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
   }
 
   &__richtext {

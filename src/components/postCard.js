@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 const PostCard = ({post}) => {
     const {title, dateAdded, excerpt, slug, featureImage} = post
     return (
-        <div className="post__card">
+        <div className="post__card" data-sal="slide-up" data-sal-duration="700" data-sal-easing="ease-out">
             <div className="post__card__picture">
                 <Img style={{height: "100%"}} imgStyle={{height: "100%"}} fluid={featureImage.fluid} />
             </div>

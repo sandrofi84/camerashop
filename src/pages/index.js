@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 import SEO from "../components/seo"
 
@@ -42,24 +43,24 @@ const data = useStaticQuery(graphql`
       <div className="layer-screen layer-screen--white"></div>
       <div className="layer-screen layer-screen--black"></div>
       <div className="layer-geometry">
-        <div className="layer-geometry__square"></div>
-        <div className="layer-geometry__square-2 bg--orange"></div>
-        <div className="layer-geometry__square-3 bg--purple"></div>
-        <div className="layer-geometry__square-4"></div>
+        <div className="layer-geometry__square" data-sal="slide-left" data-sal-duration="1000" data-sal-easing="ease-out"></div>
+        <div className="layer-geometry__square-2 bg--orange" data-sal="slide-up" data-sal-duration="1000" data-sal-easing="ease-out"></div>
+        <div className="layer-geometry__square-3 bg--purple" data-sal="slide-right" data-sal-duration="1000" data-sal-easing="ease-out"></div>
+        <div className="layer-geometry__square-4" data-sal="slide-down" data-sal-duration="1000" data-sal-easing="ease-out"></div>
       </div>
       <div className="wrapper">
         <section className="main">
-          <div className="main__text">
+          <div className="main__text" data-sal="fade" data-sal-delay="500" data-sal-duration="700" data-sal-easing="ease-out">
             <h1 className="main__text-title">The Best Camera Service on the Web.</h1>
-            <p className="main__text-subtitle">Wheteher you are <span className="color--orange">selling</span> or <span className="color--orange">buying</span> camera gear,<br/> we have many options for you.</p>
-            <Link to="/" className="btn btn--main">Our Services</Link>
+            <p className="main__text-subtitle">Whether you are <span className="color--orange">selling</span> or <span className="color--orange">buying</span> camera gear,<br/> we have many options for you.</p>
+            <AnchorLink to="/#sell" className="btn btn--main">Our Services</AnchorLink>
           </div>
 
         </section>
 
-        <section className="evaluation">
+        <section id="sell" className="evaluation">
           <div className="evaluation__container">
-            <form className="form bg--orange color--white">
+            <form className="form bg--orange color--white" data-sal="slide-right" data-sal-duration="700" data-sal-easing="ease-out">
               <h2 className="">Free Evaluation</h2>
               <div className="form-group">
                 <div className="form-subgroup">
@@ -131,15 +132,14 @@ const data = useStaticQuery(graphql`
                 <h1 className="buy__text-title color--white">Buy Camera Gear</h1>
                 <p className="buy__text-sub color--white">Are you looking for new or used camera gear?</p>
                 <h3 className="buy__text-cta color--orange">Your search is over. Visit our shop now!</h3>
-                <Link to="/" className="btn btn--buy">Shop</Link>
+                <Link to="/shop/" className="btn btn--buy">Shop</Link>
               </div>
 
-              <div className="buy__picture">
+              <div className="buy__picture" data-sal="slide-left" data-sal-duration="700" data-sal-easing="ease-out">
                 <BuyImage />
               </div>
 
             </div>
-            
             
         </section>
       </div>

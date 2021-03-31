@@ -24,7 +24,8 @@ $grey: rgba(45, 45, 46, 1);
     }
 
     &-checkout {
-      display: inline-block;
+      display: flex;
+      align-items: center;
       margin-left: 20px;
       color: white;
       cursor: pointer;
@@ -36,21 +37,15 @@ $grey: rgba(45, 45, 46, 1);
 
     &-items-count {
       display: inline-block;
+      position: relative;
+      left: -31px;
+      top: 5px;
       padding: 5px;
-      width: 28px;
+      width: 27px;
       text-align: center;
       border-radius: 15px;
       background-color: $purple;
-
-      &::before {
-        position: absolute;
-        width: 5px;
-        height: 5px;
-        content: "";
-        background-color: $purple;
-        border: 1px solid $purple;
-        transform: translateX(-12px) translateY(6px) rotate(45deg);
-      }
+      transform: scale(.6);
     }
 
     &-modal__container {
