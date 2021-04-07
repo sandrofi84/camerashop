@@ -51,11 +51,11 @@ const data = useStaticQuery(graphql`
 
     setHeight()
     
-    window.addEventListener("resize", setHeight)
+    // window.addEventListener("resize", setHeight)
 
-    return () => {
-      window.removeEventListener("resize", setHeight)
-    }
+    // return () => {
+    //   window.removeEventListener("resize", setHeight)
+    // }
   }, [])
   
   return (
