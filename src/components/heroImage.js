@@ -20,7 +20,10 @@ const HeroImage = () => {
     return <div>Picture not found</div>
   }
 
-  return <Img style={{zIndex: "-10", position: "fixed", top: "0", left: "0", height: "auto", width: "100%"}} loading="eager" fluid={data.placeholderImage.childImageSharp.fluid} />
+  const style = {height: "100%"}
+  const imgStyle = {objectPosition: "50% 0%"}
+
+  return <Img style={style} imgStyle={imgStyle} loading="eager" fluid={data.placeholderImage.childImageSharp.fluid} />
 }
 
 export default HeroImage

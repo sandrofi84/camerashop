@@ -3,14 +3,24 @@ $purple: #4600b0;
 $grey: rgba(45, 45, 46, 1);
 
 .nav {
-  display: flex;
-  align-items: center;
-  padding: 0 15px;
+
+  &--large {
+    display: none;
+    align-items: center;
+    padding: 0 15px;
+
+    @media (min-width: 890px) {
+      display: flex;
+    }
+  }
+
   &__container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
+
   &__link {
     display: block;
     margin-left: 20px;

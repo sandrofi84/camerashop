@@ -2,6 +2,18 @@
   padding: 20px;
   width: max-content;
 
+  &__title {
+    font-size: 1.5rem;
+
+      @media (min-width: 530px) {
+        font-size: 2rem;
+      }
+
+      @media (min-width: 1089px) {
+        font-size: 2.5rem;
+      }
+  }
+
   label,
   input {
     display: block;

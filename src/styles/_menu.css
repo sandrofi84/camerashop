@@ -1,0 +1,208 @@
+
+.menu {
+    &--is-visible {
+        display: block;
+        z-index: 6;
+    }
+
+    &--is-hidden {
+        display: none;
+    }
+
+    &-large {
+        display: none;
+
+        @media (min-width: 890px) {
+            display: block;
+        }
+    }
+
+    &-small {
+        display: none;
+        transform-origin: 100% 0%;
+        transition: all 0.3s ease-out;
+
+        @media (min-width: 890px) {
+            display: none !important;
+        }
+    }
+
+    &-transition-enter {
+        display: block;
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    &-transition-enter-active {
+        display: block;
+        opacity: 1;
+        transform: scaleX(1);
+    }
+
+    &-transition-enter-done {
+        display: block;
+        opacity: 1;
+        transform: scaleX(1);
+    }
+
+    &-transition-exit {
+        display: block;
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    &-transition-exit-active {
+        display: block;
+    }
+
+    &-transition-exit-done {
+        display: none;
+    }
+}
+
+
+.menu-icon {
+    z-index: 6;
+    position: relative;
+    height: 23px;
+    width: max-content;
+    transition: transform 0.2s ease-out;
+
+    &::before {
+        display: block;
+        position: relative;
+        top: 0px;
+        content: '';
+        height: 3px;
+        width: 30px;
+        background-color: white;
+        transform-origin: 0% 0%;
+    }
+
+    &__rod {
+        display: block;
+        position: relative;
+        top: 8px;
+        height: 3px;
+        width: 30px;
+        transform-origin: 100% 0%;
+        background-color: white;
+    }
+
+    &::after {
+        display: block;
+        position: relative;
+        top: 17px;
+        content: '';
+        height: 3px;
+        width: 30px;
+        background-color: white;
+        transform-origin: 100% 0%;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    @media (min-width: 890px) {
+        display: none;
+    }
+}
+
+.menu-icon--X {
+    &::before {
+        animation: menuX1 1s ease-out forwards;
+        background-color: white !important;
+    }
+
+    & .menu-icon__rod {
+        animation: menuX2 1s ease-out forwards;
+    }
+
+    &::after {
+        animation: menuX3 1s ease-out forwards;
+        background-color: white !important;
+    }
+}
+
+@keyframes menuX1 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(90deg) translateX(-3px);
+    }
+
+    30% {
+        transform: rotate(90deg) translateX(-3px);
+    }
+
+    50% {
+        transform: rotate(90deg) translateX(-3px) translateY(-16px);
+    }
+
+    70% {
+        transform: rotate(90deg) translateX(-3px) translateY(-16px);
+    }
+
+    100% {
+        transform: rotate(45deg) translateX(0px) translateY(-3px) scaleX(1.3);
+    }
+}
+
+@keyframes menuX2 {
+    0% {
+        transform: rotate(90deg) translateY(0px);
+    }
+
+    10% {
+        transform: translateY(0px);
+    }
+
+    30% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    70% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: rotate(-45deg) translateY(-11px) translateX(8px) scaleX(1.3);
+    }
+}
+
+@keyframes menuX3 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(90deg) translateX(4px);
+    }
+
+    30% {
+        transform: rotate(90deg) translateX(4px);
+    }
+
+    50% {
+        transform: rotate(90deg) translateX(4px) translateY(14px);
+    }
+
+    70% {
+        transform: rotate(90deg) translateX(4px) translateY(14px);
+    }
+
+    80% {
+        transform: rotate(90deg) translateX(4px) translateY(14px) scale(0);
+    }
+
+    100% {
+        transform: rotate(90deg) translateX(4px) translateY(14px) scale(0);
+    }
+}

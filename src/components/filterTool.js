@@ -15,7 +15,9 @@ const FilterTool = ({products, categories, makes}) => {
     })
     const minPriceDefault = Math.floor(Math.min(...pricesArray))
     const maxPriceDefault = Math.ceil(Math.max(...pricesArray))
-    const clearFiltersBtnStyle = appState.activeFilters.onlyAvailable || appState.activeFilters.onlySale || appState.activeFilters.make.length || appState.activeFilters.price.length !== 0 &&  (appState.activeFilters.price[0] !== minPriceDefault || appState.activeFilters.price[1] !== maxPriceDefault) ? {display: "block"} : {display: "none"}
+    
+    // ClearFilters Button is visible only when any filters are applied
+    const clearFiltersBtnStyle = appState.activeFilters.onlyAvailable || appState.activeFilters.onlySale || appState.activeFilters.make.length || (appState.activeFilters.price.length !== 0 &&  (appState.activeFilters.price[0] !== minPriceDefault || appState.activeFilters.price[1] !== maxPriceDefault)) ? {display: "block"} : {display: "none"}
 
 
     function filterByCategory(category) {

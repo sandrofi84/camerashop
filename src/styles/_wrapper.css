@@ -1,7 +1,13 @@
 .wrapper {
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
   width: 100vw;
+  height: 100%;
+
+  @media (min-width: 500px) {
+    padding-left: 60px;
+  padding-right: 60px;
+  }
 
   &--vertical {
     padding-top: 200px;
