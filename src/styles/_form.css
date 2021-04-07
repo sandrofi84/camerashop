@@ -1,6 +1,7 @@
 .form {
   padding: 20px;
-  width: max-content;
+  width: 100%;
+  max-width: max-content;
 
   &__title {
     font-size: 1.5rem;

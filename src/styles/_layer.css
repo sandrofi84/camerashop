@@ -64,47 +64,100 @@ $purple: #4600b0;
 
   &-geometry {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    max-width: 100%;
     min-height: 300%;
+    overflow-x: hidden;
 
     &__square {
       position: absolute;
       top: 78vh;
-      left: 85vw;
-      height: 100px;
-      width: 100px;
+      left: 79vw;
+      height: 60px;
+      width: 60px;
       border: 5px solid $purple;
       opacity: 0.6;
+
+      @media (min-width: 605px) {
+        top: 78vh;
+        left: 85vw;
+        height: 60px;
+      width: 60px;
+      }
+
+      @media (min-width: 1080px) {
+        top: 78vh;
+        left: 85vw;
+        height: 100px;
+        width: 100px;
+      }
     }
 
     &__square-2 {
       position: absolute;
-      top: 84vh;
-      left: 78vw;
+      top: 82vh;
+      left: 65vw;
       height: 300px;
-      width: 150px;
+      width: 90px;
       border: 10px solid $orange;
       opacity: 0.6;
+
+      @media (min-width: 605px) {
+        top: 84vh;
+        left: 78vw;
+        height: 300px;
+        width: 90px;
+      }
+
+      @media (min-width: 1080px) {
+        top: 84vh;
+        left: 78vw;
+        height: 300px;
+        width: 150px;
+      }
     }
 
     &__square-3 {
       position: absolute;
-      top: 25vh;
-      left: 15vw;
-      height: 100px;
-      width: 100px;
+      top: 20vh;
+      left: 5vw;
+      height: 60px;
+      width: 60px;
       border: 7px solid $purple;
       opacity: 0.6;
+
+      @media (min-width: 1080px) {
+        top: 25vh;
+        left: 15vw;
+        height: 100px;
+        width: 100px;
+      }
     }
 
     &__square-4 {
       position: absolute;
-      top: 28vh;
-      left: 20vw;
-      height: 200px;
-      width: 200px;
+      top: 25vh;
+      left: 10vw;
+      height: 100px;
+      width: 100px;
       border: 1px solid $orange;
       opacity: 0.6;
+
+      @media (min-width: 500px) {
+        top: 25vh;
+        left: 10vw;
+        height: 150px;
+        width: 150px;
+      }
+
+      @media (min-width: 1080px) {
+        top: 28vh;
+        left: 20vw;
+        height: 200px;
+        width: 200px;
+      }
     }
   }
 }

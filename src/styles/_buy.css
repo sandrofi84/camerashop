@@ -16,6 +16,7 @@ $purple: rgba(70, 0, 176, 1);
     padding-bottom: 90px;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 
     @media (min-width: 717px) {
       flex-direction: row;
@@ -109,7 +110,7 @@ $purple: rgba(70, 0, 176, 1);
       height: 400px;
     }
 
-    &::after {
+    /*&::after {
       z-index: -1;
       position: relative;
       top: -130px;
@@ -119,6 +120,6 @@ $purple: rgba(70, 0, 176, 1);
       width: 350px;
       height: 100px;
       background-color: rgba(70, 0, 176, 0.6);
-    }
+    }*/
   }
 }
