@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 
@@ -36,6 +36,27 @@ const data = useStaticQuery(graphql`
 
 
   const recentPosts = data ? data.recentPosts.edges : null;
+  const [whiteLayerHeight, setWhiteLayerHeight] = useState("450vh")
+
+  useEffect(()=>{
+    const recPosts = document.getElementById("recent-posts")
+    const layerGeo = document.getElementById("layer-geometry")
+    
+    function setHeight() {
+      const recPostsY = recPosts.getBoundingClientRect().y
+      const pixelsFromTop = Math.abs(layerGeo.getBoundingClientRect().y)
+      const height = pixelsFromTop + recPostsY
+      setWhiteLayerHeight(`${height}px`)
+    }
+
+    setHeight()
+    
+    window.addEventListener("resize", setHeight)
+
+    return () => {
+      window.removeEventListener("resize", setHeight)
+    }
+  }, [])
   
   return (
 
@@ -45,14 +66,14 @@ const data = useStaticQuery(graphql`
       <HeroImage />
     </div>
 
-    <div className="layer-geometry">
+    <div id="layer-geometry" className="layer-geometry">
       <div className="layer-geometry__square" data-sal="slide-left" data-sal-duration="1000" data-sal-easing="ease-out"></div>
       <div className="layer-geometry__square-2 bg--orange" data-sal="slide-up" data-sal-duration="1000" data-sal-easing="ease-out"></div>
       <div className="layer-geometry__square-3 bg--purple" data-sal="slide-right" data-sal-duration="1000" data-sal-easing="ease-out"></div>
       <div className="layer-geometry__square-4" data-sal="slide-down" data-sal-duration="1000" data-sal-easing="ease-out"></div>
     </div>
     
-    <img src={layerWhite} alt="white layer" className="layer-screen--white"/>
+    <img src={layerWhite} alt="white layer" style={{height: whiteLayerHeight}} className="layer-screen--white"/>
     
     <section className="main">
       <div className="wrapper">
@@ -162,7 +183,7 @@ const data = useStaticQuery(graphql`
         <ServicesImage />
     </section>
 
-    <section className="recent-posts bg--purple">
+    <section id="recent-posts" className="recent-posts bg--purple">
       <h1 className="recent-posts__title color--white">Recent Blog Posts</h1>
       <div className="recent-posts__pool">
       { 

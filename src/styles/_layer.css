@@ -10,7 +10,8 @@ $purple: #4600b0;
     left: 0;
     height: 100vh;
     min-height: 700px;
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
   }
 
@@ -41,22 +42,14 @@ $purple: #4600b0;
     &--white {
       z-index: -3;
       position: absolute;
-      top: 75vh;
+      top: 71vh;
       left: 0;
       width: 100vw;
-      height: 450vh;
+
       opacity: .8;
 
       @media (min-width: 717px) {
         top: 83vh;
-      }
-
-      @media (min-width: 858px) {
-        height: 400vh;
-      }
-
-      @media (min-width: 1500px) {
-        height: 350vh;
       }
     }
 
