@@ -45,7 +45,7 @@ $purple: #4600b0;
       top: 71vh;
       left: 0;
       width: 100vw;
-
+      transform: translate3d(0,0,0);
       opacity: .8;
 
       @media (min-width: 717px) {
