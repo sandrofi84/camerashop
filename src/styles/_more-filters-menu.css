@@ -3,7 +3,9 @@ $purple: #4600b0;
 $grey: rgba(45, 45, 46, 1);
 
 .more-filters-menu {
+    z-index: 5;
     display: block;
+    position: relative;
     width: 100vw;
     height: 100%;
     padding: 20px 50px;
