@@ -72,8 +72,12 @@ $purple: #4600b0;
     background-color: #fc7c3c;
     font-size: 1rem;
     color: white;
-    padding: 9px 15px;
+    padding: 9px 10px;
     border-radius: 0px;
+
+    @media (min-width: 890px) {
+      padding: 9px 15px;
+    }
 
     &:hover {
       background-color: $purple;

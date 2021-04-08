@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, { useContext, useRef } from 'react'
 
 import StateContext from "../context/stateContext"
 import DispatchContext from "../context/dispatchContext"
@@ -10,6 +10,7 @@ const FilterTool = ({products, categories, makes}) => {
 
     const appState = useContext(StateContext);
     const appDispatch = useContext(DispatchContext);
+    const selectRef = useRef();
     const pricesArray = products.map(product => {
         return product.node.discountPrice ? product.node.discountPrice : product.node.price
     })
@@ -55,7 +56,18 @@ const FilterTool = ({products, categories, makes}) => {
                         tabIndex="0">{categoryName}</button>
                     })}
                 </div>
+                <div className="shop__menu__select-category">
+                    <label htmlFor="filter-tool__select-category">Category: </label>
+                    <select ref={selectRef} onChange={e => filterByCategory(e.target.value)} name="selectCategory" id="filter-tool__select-category">
+                        <option value="shop-all" selected={appState.activeFilters.category === "shop-all"}>Shop All</option>
+                        {categories.map(category => {
+                                const categoryName = category.node.categoryName
+                                return <option value={categoryName} selected={appState.activeFilters.category === categoryName}>{categoryName}</option>
+                            })}
+                    </select>
+                </div>
             </div>
+
             <button onClick={() => appDispatch({type: "clearFilters"})} className="filter-tool__clear-filters-btn color--white" style={clearFiltersBtnStyle} >clear filters <img src={clearFiltersIcon} alt="close button"/></button>
             <div className={`more-filters-menu__container${appState.moreFiltersMenuIsVisible ? " more-filters-menu__container--show" : ""}`} >
                 <div className="more-filters-menu__invisible-block"></div>

@@ -2,6 +2,7 @@
     &__title {
         margin: auto;
         width: max-content;
+        font-size: 3rem;
     }
 
     &__pool {

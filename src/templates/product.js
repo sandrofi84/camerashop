@@ -53,11 +53,13 @@ const ProductTemplate = ({data}) => {
 
               <div className="product-page__section-left bg--lightGrey">
 
-                <div className="product-page__images-container">
-                  <ImageCarousel mainImage={product.mainImage} otherImages={product.otherImages} setSelectedImage={setSelectedImage} />
-                  <Img style={{width: "100%", height: "350px"}} fluid={selectedImage} />
-                </div>
-              
+                  <div className="product-page__images-container">
+                    <ImageCarousel mainImage={product.mainImage} otherImages={product.otherImages} setSelectedImage={setSelectedImage} />
+                    <div className="product-page__main-picture">
+                      <Img style={{width: "100%", height: "100%"}} imgStyle={{objectFit: "contain"}} fluid={selectedImage} />
+                    </div>
+                  </div>
+
               </div>
 
               <div className="product-page__section-right">
@@ -72,11 +74,16 @@ const ProductTemplate = ({data}) => {
 
             </div>
             <div className="product-page__summary-box">
-              <Img style={{width: "130px", minWidth: "130px", height: "100px"}} fluid={product.mainImage.fluid} />
-              <h3 className="product-page__name color--white">{product.productName}</h3>
-              <div className="product-page__availability bg--white">{loading ? <div className="lds-ring"><div></div><div></div><div></div><div></div></div> : <ProductAvailabilityTag availability={availability} setBoxShadow={null} />}</div>
-              <h2 className="product-page__price"><span className={product.discountPrice && "product-page__price--discount"}>£{product.price}</span> {product.discountPrice && <span>£{product.discountPrice}</span>}</h2>
-              <AddToCartButton product={product} availability={availability} loading={loading} siteUrl={site.siteMetadata.siteUrl} />    
+              <div className="product-page__summary-box__picture">
+                <Img style={{width: "100%", height: "100%"}} imgStyle={{objectFit: "cover"}} fluid={product.mainImage.fluid} />
+              </div>
+              <h3 className="product-page__summary-box__name color--white">{product.productName}</h3>
+              <h2 className="product-page__summary-box__price"><span className={product.discountPrice && "product-page__summary-box__price--discount"}>£{product.price}</span> {product.discountPrice && <span>£{product.discountPrice}</span>}</h2>
+              <div className="product-page__summary-box__btn-container">
+                <div className="product-page__summary-box__availability bg--white">{loading ? <div className="lds-ring"><div></div><div></div><div></div><div></div></div> : <ProductAvailabilityTag availability={availability} setBoxShadow={null} />}</div>
+                <AddToCartButton product={product} availability={availability} loading={loading} siteUrl={site.siteMetadata.siteUrl} />    
+              </div>
+              
             </div>
         </>
         

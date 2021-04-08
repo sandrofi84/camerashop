@@ -85,7 +85,7 @@ const ShopPool = ({products, siteUrl}) => {
     return (
         <div className={`shop__pool-container${appState.moreFiltersMenuIsVisible ? " shop__pool-container--push-right" : ""}`}>
             <div className="shop__pool-sortby">
-                <label htmlFor="shop__pool-sortby">Sort By: </label>
+                <label htmlFor="shop__pool-sortby">Sort By:</label>
                 <select ref={selectRef} onChange={e => sortProductsBy(e.target.value)} name="sortBy" id="shop__pool-sortby">
                     <option value="newest">Newest</option>
                     <option value="lowToHigh">Price - Low to High</option>

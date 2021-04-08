@@ -6,12 +6,19 @@ $grey: rgba(45, 45, 46, 1);
 
   &__list {
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     list-style-type: none;
     cursor: pointer;
 
+    @media (min-width: 890px) {
+      display: flex;
+    }
+
     &-item {
+      margin: 10px 10px;
+      min-width: max-content;
       text-decoration: none;
       background: none;
       font-family: inherit;
@@ -43,11 +50,13 @@ $grey: rgba(45, 45, 46, 1);
 
   &__more-filters-btn {
     height: max-content;
+    min-width: max-content;
     text-decoration: none;
     background: none;
     font-family: inherit;
     font-size: inherit;
     color: inherit;
+    text-align: center;
     cursor: pointer;
     transition: all .3s ease-out;
 
@@ -58,7 +67,8 @@ $grey: rgba(45, 45, 46, 1);
     }
 
     img {
-      display: inline-block;
+      display: block;
+      margin: auto;
       filter: invert();
       width: 20px;
       height: 20px;;

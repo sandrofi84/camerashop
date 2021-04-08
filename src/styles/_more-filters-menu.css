@@ -4,9 +4,18 @@ $grey: rgba(45, 45, 46, 1);
 
 .more-filters-menu {
     display: block;
-    width: 250px;
+    width: 100vw;
     height: 100%;
-    padding: 20px;
+    padding: 20px 50px;
+
+    @media (min-width: 500px) {
+        padding: 20px 120px;
+    }
+
+    @media (min-width: 595px) {
+        width: 250px;
+        padding: 20px;
+    }
 
     p {
         margin-bottom: 10px;
@@ -40,10 +49,14 @@ $grey: rgba(45, 45, 46, 1);
         position: fixed;
         top: 0;
         left: 0;
-        transform: translateX(-250px);
+        transform: translateX(-100vw);
         height: 100vh;
         overflow-y: hidden;
         transition: transform .3s ease-out;
+
+        @media (min-width: 595px) {
+            transform: translateX(-250px);
+        }
 
         &--show {
             transform: translateY(0px);

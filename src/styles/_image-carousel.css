@@ -6,9 +6,11 @@ $grey: rgba(45, 45, 46, 1);
   &__column {
     display: flex;
     flex-direction: column;
-    width: 50px;
-    max-width: 50px;
+    padding: 10px 3px;
+    width: 56px;
+    max-width: 56px;
     list-style: none;
+    background-color: #d7c3f5;
   }
 
   &__thumbnail {
