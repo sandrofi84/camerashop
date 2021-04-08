@@ -1,7 +1,7 @@
 .plife {
   z-index: 1;
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: max-content;
   min-height: 700px;
   background-color: rgba(128, 43, 255, 0.8);
@@ -23,6 +23,6 @@
 
   &__container {
     margin: auto;
-    width: max-content;
+    overflow-x: hidden;
   }
 }

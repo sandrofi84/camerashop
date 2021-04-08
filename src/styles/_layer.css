@@ -12,7 +12,7 @@ $purple: #4600b0;
     min-height: 700px;
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   &-screen {

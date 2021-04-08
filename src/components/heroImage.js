@@ -20,7 +20,7 @@ const HeroImage = () => {
     return <div>Picture not found</div>
   }
 
-  const style = {height: "100%"}
+  const style = {width: "100%", height: "100%"}
   const imgStyle = {objectPosition: "50% 0%"}
 
   return <Img style={style} imgStyle={imgStyle} loading="eager" fluid={data.placeholderImage.childImageSharp.fluid} />
