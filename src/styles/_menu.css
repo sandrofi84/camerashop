@@ -111,16 +111,16 @@
 
 .menu-icon--X {
     &::before {
-        animation: menuX1 1s ease-out forwards;
+        animation: menuX1 .3s ease-out forwards;
         background-color: white !important;
     }
 
     & .menu-icon__rod {
-        animation: menuX2 1s ease-out forwards;
+        animation: menuX2 .3s ease-out forwards;
     }
 
     &::after {
-        animation: menuX3 1s ease-out forwards;
+        animation: menuX3 .3s ease-out forwards;
         background-color: white !important;
     }
 }
@@ -128,22 +128,6 @@
 @keyframes menuX1 {
     0% {
         transform: rotate(0deg);
-    }
-
-    10% {
-        transform: rotate(90deg) translateX(-3px);
-    }
-
-    30% {
-        transform: rotate(90deg) translateX(-3px);
-    }
-
-    50% {
-        transform: rotate(90deg) translateX(-3px) translateY(-16px);
-    }
-
-    70% {
-        transform: rotate(90deg) translateX(-3px) translateY(-16px);
     }
 
     100% {
@@ -154,22 +138,6 @@
 @keyframes menuX2 {
     0% {
         transform: rotate(90deg) translateY(0px);
-    }
-
-    10% {
-        transform: translateY(0px);
-    }
-
-    30% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
-
-    70% {
-        transform: translateY(-15px);
     }
 
     100% {
@@ -183,25 +151,9 @@
     }
 
     10% {
-        transform: rotate(90deg) translateX(4px);
-    }
-
-    30% {
-        transform: rotate(90deg) translateX(4px);
-    }
-
-    50% {
-        transform: rotate(90deg) translateX(4px) translateY(14px);
-    }
-
-    70% {
-        transform: rotate(90deg) translateX(4px) translateY(14px);
-    }
-
-    80% {
         transform: rotate(90deg) translateX(4px) translateY(14px) scale(0);
     }
-
+    
     100% {
         transform: rotate(90deg) translateX(4px) translateY(14px) scale(0);
     }
