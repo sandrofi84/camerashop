@@ -7,6 +7,7 @@ import StateContext from "../context/stateContext"
 
 const ShopPool = ({products, siteUrl}) => {
     const appState = useContext(StateContext);
+    const [forceResub, setForceResub] = useState(true);
     const [stock, setStock] = useState();
     const [sortedProducts, setSortedProducts] = useState(products);
     const selectRef = useRef()
@@ -44,7 +45,7 @@ const ShopPool = ({products, siteUrl}) => {
     
 
     useEffect(() => {
-
+        console.log("useffect")
         const myRequest = Axios.CancelToken.source();
         
         // Call serverless function to get stock from Snipcart API
@@ -73,14 +74,23 @@ const ShopPool = ({products, siteUrl}) => {
                 setStock(data.data.inventoryUpdates)
               }
             },
-            error(err) { console.error('err', err); },
+            error(err) { 
+                console.error('err', err);
+                if (err?.errors[0]?.message === "Connection closed") {
+                    // This triggers another useEffect call when the websocket connection drops.
+                    // This is mainly to address the fact that VPN connections tend to close
+                    // websocket connections after a couple of minutes.
+                    setForceResub(prev => !prev);
+                }
+            },
         })
 
         return () => {
+            console.log("useffect cleanup")
             myRequest.cancel();
             subscription.unsubscribe();
         }
-    }, [siteUrl])
+    }, [forceResub])
 
     return (
         <div className={`shop__pool-container${appState.moreFiltersMenuIsVisible ? " shop__pool-container--push-right" : ""}`}>

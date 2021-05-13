@@ -58,11 +58,11 @@ const FilterTool = ({products, categories, makes}) => {
                 </div>
                 <div className="shop__menu__select-category">
                     <label htmlFor="filter-tool__select-category">Category: </label>
-                    <select ref={selectRef} onChange={e => filterByCategory(e.target.value)} name="selectCategory" id="filter-tool__select-category">
-                        <option value="shop-all" selected={appState.activeFilters.category === "shop-all"}>Shop All</option>
+                    <select ref={selectRef} onChange={e => filterByCategory(e.target.value)} name="selectCategory" id="filter-tool__select-category" value={appState.activeFilters.category}>
+                        <option value="shop-all">Shop All</option>
                         {categories.map(category => {
                                 const categoryName = category.node.categoryName
-                                return <option value={categoryName} selected={appState.activeFilters.category === categoryName}>{categoryName}</option>
+                                return <option key={categoryName} value={categoryName}>{categoryName}</option>
                             })}
                     </select>
                 </div>
