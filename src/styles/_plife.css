@@ -23,6 +23,8 @@
 
   &__container {
     margin: auto;
+    padding: 0 50px;
+    max-width: 800px;
     overflow-x: hidden;
   }
 }

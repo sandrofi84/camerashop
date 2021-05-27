@@ -1,0 +1,17 @@
+$purple: #4600b0;
+
+.disclaimer {
+  z-index: 1000;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0px;
+  padding: 0 20px;
+  height: max-content;
+  width: 100vw;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-top: 1px solid $purple;
+
+  color: white;
+}

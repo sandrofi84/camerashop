@@ -9,8 +9,11 @@ import ServicesPool from "../components/servicesPool"
 import HeroImage from "../components/heroImage"
 import BuyImage from "../components/buyImage"
 import PostCard from "../components/postCard"
+
 import layerBlack from "../images/camerashop_bg_black.svg"
 import layerWhite from "../images/camerashop_bg_white.svg"
+import videoMp4 from "../images/camerashop-realtime.mp4"
+import videoWebm from "../images/camerashop-realtime.webm"
 
 const HomePage = () => {
 const data = useStaticQuery(graphql`
@@ -141,7 +144,7 @@ const data = useStaticQuery(graphql`
               <small>I consent to having this website store my submitted<br/>information so they can respond to my inquiry.</small>
             </div>
 
-            <button className="btn btn--form">Submit</button>
+            <button className="btn btn--form btn--disabled" disabled>Submit</button>
           </form>
 
           <div className="evaluation__text">
@@ -196,7 +199,10 @@ const data = useStaticQuery(graphql`
     <div className="plife">
       <h1 className="plife__title color--white">A Life in Photos</h1>
       <div className="plife__container">
-        <iframe className="plife__video" title="A Photographer's Life" allowFullScreen="1" id="widget2" width="640" height="360" frameBorder="0"></iframe>
+        <video controls mute width="100%" preload="metadata">
+          <source src={videoWebm} type="video/webm" />
+          <source src={videoMp4} type="video/mp4" />
+        </video>
       </div>
       
     </div>

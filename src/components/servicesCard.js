@@ -16,7 +16,7 @@ const servicesCard = ({image, serviceInfo}) => {
               <h3 className="services__card__text-title color--orange">{serviceInfo.title}</h3>
               <p className="services__card__text-sub color--purple">{serviceInfo.text}</p>
 
-              <Link to={serviceInfo.url} className="btn btn--services">Learn More</Link>
+              <Link to={serviceInfo.url} className="btn btn--services btn--disabled">Learn More</Link>
           </div>
         </div>
     )

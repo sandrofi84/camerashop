@@ -2,10 +2,15 @@
 import React, { useEffect } from "react"
 import {useImmerReducer} from "use-immer"
 
-import Header from "./header"
 import "../styles/layout.css"
+
+import Header from "./header"
+import Footer from "./footer"
+
 import StateContext from "../context/stateContext"
 import DispatchContext from "../context/dispatchContext"
+import Disclaimer from "./disclaimer"
+
 
 const Layout = ({ children }) => {
 
@@ -79,7 +84,7 @@ const Layout = ({ children }) => {
     }
   }
 
-  const [appState, appDespatch] = useImmerReducer(reducer, initialState);
+  const [appState, appDispatch] = useImmerReducer(reducer, initialState);
 
   useEffect(() => {
     let unsubscribe;
@@ -120,10 +125,11 @@ const Layout = ({ children }) => {
 
   return (
       <StateContext.Provider value={appState}>
-        <DispatchContext.Provider value={appDespatch}>
+        <DispatchContext.Provider value={appDispatch}>
           <Header/>
+          <Disclaimer />
           <main>{children}</main>
-          <footer className="footer bg--grey color--white"/>
+          <Footer />
         </DispatchContext.Provider>
       </StateContext.Provider>
   )
