@@ -199,7 +199,7 @@ const data = useStaticQuery(graphql`
     <div className="plife">
       <h1 className="plife__title color--white">A Life in Photos</h1>
       <div className="plife__container">
-        <video controls mute width="100%" preload="metadata">
+        <video controls mute="true" width="100%">
           <source src={videoWebm} type="video/webm" />
           <source src={videoMp4} type="video/mp4" />
         </video>
